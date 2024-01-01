@@ -1,18 +1,25 @@
 import { Module } from '@nestjs/common';
+import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { AuthModule } from './auth/auth.module';
-import { ConfigModule } from '@nestjs/config';
-import { MongooseModule } from '@nestjs/mongoose';
+
+import { UsersModule } from './auth/user.module';
 
 @Module({
   imports: [
-    ConfigModule.forRoot({
-      envFilePath: '.env',
-      isGlobal: true,
+    TypeOrmModule.forFeature([]),
+    TypeOrmModule.forRoot({
+      type: 'postgres',
+      host: 'localhost',
+      port: 5433,
+      username: 'postgres',
+      password: '2023',
+      database: 'userBD',
+      autoLoadEntities: true,
+
+      synchronize: true,
     }),
-    MongooseModule.forRoot(process.env.DB_URI),
-    AuthModule,
+    UsersModule,
   ],
   controllers: [AppController],
   providers: [AppService],

@@ -10,36 +10,20 @@ import {
   Session,
   ValidationPipe,
 } from '@nestjs/common';
-import { CreateUserDto } from '../dtos/create-user.dto';
-import { UsersService } from './users.service';
+import { CreateUserDto } from './crete-user.dto';
+import { UsersService } from './user.service';
 import { AuthService } from './user.auth';
-import { LoginUserDto } from 'src/dtos/login-user.dto';
+import { LoginUserDto } from './login-user.dto';
 
-import { UpdateDto } from 'src/dtos/update.dto';
+import { UpdateDto } from './update.dto';
 
 @Controller('auth')
 export class UsersController {
   constructor(
-    private emailService: EmailService,
     private usersService: UsersService,
     private authService: AuthService,
-    private messageService: MessageService,
   ) {}
-  @Post('/message')
-  createMessage(@Body() body: MsgDto) {
-    this.messageService.create(body.name, body.cont);
-  }
-  @Post('email')
-  async sendEmail(@Body(ValidationPipe) sendEmailDto: EmailDto) {
-    const { to, subject, content } = sendEmailDto;
 
-    const mydata = {
-      to: to,
-      subject: subject,
-      text: content,
-    };
-    return this.emailService.sendEmail(mydata);
-  }
   @Get('/profile')
   profile(@Session() session: any) {
     return this.usersService.findOne(session.userId);
