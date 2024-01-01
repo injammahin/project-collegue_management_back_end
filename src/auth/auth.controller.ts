@@ -1,41 +1,82 @@
 import {
+  Body,
   Controller,
+  Delete,
   Get,
   Param,
   Post,
-  Body,
   Put,
-  Delete,
+  Patch,
+  Session,
+  ValidationPipe,
 } from '@nestjs/common';
-import { AuthService } from './auth.service';
-import { UserDto } from './auth.dto';
+import { CreateUserDto } from '../dtos/create-user.dto';
+import { UsersService } from './users.service';
+import { AuthService } from './user.auth';
+import { LoginUserDto } from 'src/dtos/login-user.dto';
 
-@Controller('users')
-export class AuthController {
-  constructor(private readonly userService: AuthService) {}
+import { UpdateDto } from 'src/dtos/update.dto';
 
-  @Get()
-  findAll() {
-    return this.userService.findAll();
+@Controller('auth')
+export class UsersController {
+  constructor(
+    private emailService: EmailService,
+    private usersService: UsersService,
+    private authService: AuthService,
+    private messageService: MessageService,
+  ) {}
+  @Post('/message')
+  createMessage(@Body() body: MsgDto) {
+    this.messageService.create(body.name, body.cont);
+  }
+  @Post('email')
+  async sendEmail(@Body(ValidationPipe) sendEmailDto: EmailDto) {
+    const { to, subject, content } = sendEmailDto;
+
+    const mydata = {
+      to: to,
+      subject: subject,
+      text: content,
+    };
+    return this.emailService.sendEmail(mydata);
+  }
+  @Get('/profile')
+  profile(@Session() session: any) {
+    return this.usersService.findOne(session.userId);
+  }
+  @Post('/signout')
+  logout(@Session() session: any) {
+    session.userId = null;
+  }
+  @Post('/signup')
+  async createUser(@Body() body: CreateUserDto, @Session() session: any) {
+    const user = await this.authService.signup(
+      body.name,
+      body.phone,
+      body.email,
+      body.password,
+    );
+    session.userId = user.id;
+    return user;
+  }
+  @Post('/signin')
+  async signin(@Body() body: LoginUserDto, @Session() session: any) {
+    const user = await this.authService.signin(body.email, body.password);
+    session.userId = user.id;
+    return 'sign in';
+  }
+  @Post('/:id')
+  findUser(@Param('id') id: string) {
+    return this.usersService.findOne(parseInt(id));
   }
 
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.userService.findOne(+id);
+  @Delete('/:id')
+  removeUser(@Param('id') id: string) {
+    return this.usersService.remove(parseInt(id));
   }
 
-  @Post()
-  create(@Body() userDto: UserDto) {
-    return this.userService.createUser(userDto);
-  }
-
-  @Put(':id')
-  update(@Param('id') id: string, @Body() userDto: UserDto) {
-    return this.userService.updateUser(+id, userDto);
-  }
-
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.userService.deleteUser(+id);
+  @Put('/:id')
+  updateUser(@Param('id') id: string, @Body() body: UpdateDto) {
+    return this.usersService.update(parseInt(id), body);
   }
 }
