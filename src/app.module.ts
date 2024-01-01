@@ -14,7 +14,7 @@ import { UsersModule } from './auth/user.module';
       port: 5433,
       username: 'postgres',
       password: '2023',
-      database: 'userBD',
+      database: 'collegue',
       autoLoadEntities: true,
 
       synchronize: true,

@@ -10,12 +10,12 @@ import {
   Session,
   ValidationPipe,
 } from '@nestjs/common';
-import { CreateUserDto } from './crete-user.dto';
+import { CreateUserDto } from 'src/dto/crete-user.dto';
 import { UsersService } from './user.service';
 import { AuthService } from './user.auth';
-import { LoginUserDto } from './login-user.dto';
+import { LoginUserDto } from '../dto/login-user.dto';
 
-import { UpdateDto } from './update.dto';
+import { UpdateDto } from '../dto/update.dto';
 
 @Controller('auth')
 export class UsersController {
@@ -29,9 +29,7 @@ export class UsersController {
     return this.usersService.findOne(session.userId);
   }
   @Post('/signout')
-  logout(@Session() session: any) {
-    session.userId = null;
-  }
+  logout(@Session() session: any) {}
   @Post('/signup')
   async createUser(@Body() body: CreateUserDto, @Session() session: any) {
     const user = await this.authService.signup(
@@ -40,14 +38,14 @@ export class UsersController {
       body.email,
       body.password,
     );
-    session.userId = user.id;
+
     return user;
   }
   @Post('/signin')
   async signin(@Body() body: LoginUserDto, @Session() session: any) {
     const user = await this.authService.signin(body.email, body.password);
-    session.userId = user.id;
-    return 'sign in';
+
+    return 'sign in successfully';
   }
   @Post('/:id')
   findUser(@Param('id') id: string) {
