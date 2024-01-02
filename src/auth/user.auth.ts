@@ -7,13 +7,13 @@ import { UsersService } from './user.service';
 @Injectable()
 export class AuthService {
   constructor(private usersService: UsersService) {}
-  async signup(name: string, phone: string, email: string, password: string) {
+  async signup(name: string, email: string, password: string) {
     // See if email is in use
     const users = await this.usersService.find(email);
     if (users.length) {
       throw new BadRequestException('email in use');
     }
-    const user = await this.usersService.create(name, phone, email, password);
+    const user = await this.usersService.create(name, email, password);
 
     // return the user
     return user;

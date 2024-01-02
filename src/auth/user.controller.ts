@@ -34,7 +34,7 @@ export class UsersController {
   async createUser(@Body() body: CreateUserDto, @Session() session: any) {
     const user = await this.authService.signup(
       body.name,
-      body.phone,
+
       body.email,
       body.password,
     );

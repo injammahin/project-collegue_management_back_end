@@ -7,10 +7,10 @@ import { User } from './user.entity';
 export class UsersService {
   constructor(@InjectRepository(User) private repo: Repository<User>) {}
 
-  create(name: string, phone: string, email: string, password: string) {
+  create(name: string, email: string, password: string) {
     const user = this.repo.create({
       name,
-      phone,
+
       email,
       password,
     });
