@@ -34,7 +34,6 @@ export class UsersController {
   async createUser(@Body() body: CreateUserDto, @Session() session: any) {
     const user = await this.authService.signup(
       body.name,
-
       body.email,
       body.password,
     );
@@ -45,7 +44,7 @@ export class UsersController {
   async signin(@Body() body: LoginUserDto, @Session() session: any) {
     const user = await this.authService.signin(body.email, body.password);
 
-    return 'sign in successfully';
+    return user;
   }
   @Post('/:id')
   findUser(@Param('id') id: string) {
