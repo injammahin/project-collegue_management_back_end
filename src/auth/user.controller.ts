@@ -24,12 +24,15 @@ export class UsersController {
     private authService: AuthService,
   ) {}
 
-  @Get('/profile')
-  profile(@Session() session: any) {
-    return this.usersService.findOne(session.userId);
-  }
+  // @Get('/profile')
+  // profile(@Session() session: any) {
+  //   return this.usersService.findOne(session.userId);
+  // }
   @Post('/signout')
-  logout(@Session() session: any) {}
+  logout(@Session() session: any) {
+    session.userId = null;
+    return 'sign out';
+  }
   @Post('/signup')
   async createUser(@Body() body: CreateUserDto, @Session() session: any) {
     const user = await this.authService.signup(
@@ -59,5 +62,16 @@ export class UsersController {
   @Put('/:id')
   updateUser(@Param('id') id: string, @Body() body: UpdateDto) {
     return this.usersService.update(parseInt(id), body);
+  }
+  @Get('/profile')
+  async profile(@Body() body: any) {
+    const user = await this.usersService.find(body.email);
+
+    if (!user) {
+      return 'failed';
+    } else {
+      // const { password, ...profileData } = data;
+      return user[0];
+    }
   }
 }
