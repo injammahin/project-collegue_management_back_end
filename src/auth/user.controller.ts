@@ -24,13 +24,8 @@ export class UsersController {
     private authService: AuthService,
   ) {}
 
-  // @Get('/profile')
-  // profile(@Session() session: any) {
-  //   return this.usersService.findOne(session.userId);
-  // }
   @Post('/signout')
-  logout(@Session() session: any) {
-    session.userId = null;
+  logout() {
     return 'sign out';
   }
   @Post('/signup')

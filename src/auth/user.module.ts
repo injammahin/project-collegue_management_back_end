@@ -9,15 +9,25 @@ import { ServiceRequestController } from 'src/service-request/service-request.co
 import { ServiceRequestService } from 'src/service-request/service-request.service';
 import { ServiceRequest } from 'src/service-request/service-request.entity';
 import { ServiceAuthService } from 'src/service-request/service-request.auth';
+import { departmentController } from 'src/department/department_information/department.controller';
+import { departmentService } from 'src/department/department_information/department.service';
+import { departmentAuthService } from 'src/department/department_information/department.auth';
+import { Department } from 'src/department/department_information/department.entity';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([User, ServiceRequest])],
-  controllers: [UsersController, ServiceRequestController],
+  imports: [TypeOrmModule.forFeature([User, ServiceRequest, Department])],
+  controllers: [
+    UsersController,
+    ServiceRequestController,
+    departmentController,
+  ],
   providers: [
     UsersService,
     AuthService,
     ServiceRequestService,
     ServiceAuthService,
+    departmentService,
+    departmentAuthService,
   ],
 })
 export class UsersModule {}
