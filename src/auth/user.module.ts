@@ -13,13 +13,20 @@ import { departmentController } from 'src/department/department_information/depa
 import { departmentService } from 'src/department/department_information/department.service';
 import { departmentAuthService } from 'src/department/department_information/department.auth';
 import { Department } from 'src/department/department_information/department.entity';
+import { employeeController } from 'src/department/employee_information/employee.controller';
+import { employeeAuthService } from 'src/department/employee_information/employee.auth';
+import { employeeService } from 'src/department/employee_information/employee.service';
+import { Employee } from 'src/department/employee_information/employee.entity';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([User, ServiceRequest, Department])],
+  imports: [
+    TypeOrmModule.forFeature([User, ServiceRequest, Department, Employee]),
+  ],
   controllers: [
     UsersController,
     ServiceRequestController,
     departmentController,
+    employeeController,
   ],
   providers: [
     UsersService,
@@ -28,6 +35,8 @@ import { Department } from 'src/department/department_information/department.ent
     ServiceAuthService,
     departmentService,
     departmentAuthService,
+    employeeAuthService,
+    employeeService,
   ],
 })
 export class UsersModule {}
