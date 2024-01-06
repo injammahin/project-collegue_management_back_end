@@ -6,6 +6,7 @@ import { ServiceRequest } from './service-request.entity';
 
 @Injectable()
 export class ServiceRequestService {
+  user: any;
   constructor(
     @InjectRepository(ServiceRequest) private repo: Repository<ServiceRequest>, // private emailService: EmailService,
   ) {}
@@ -55,4 +56,7 @@ export class ServiceRequestService {
   // async findAll(): Promise<ServiceRequest[]> {
   //   return await this.serviceRequestRepository.find();
   // }
+  async findAll(): Promise<ServiceRequest[]> {
+    return this.repo.find({ relations: ['user'] });
+  }
 }

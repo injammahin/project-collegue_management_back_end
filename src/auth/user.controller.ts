@@ -65,8 +65,7 @@ export class UsersController {
     if (!user) {
       return 'failed';
     } else {
-      // const { password, ...profileData } = data;
-      return user[0];
+      return user;
     }
   }
 }

@@ -39,4 +39,8 @@ export class ServiceRequestController {
   // findAll() {
   //   return this.serviceRequestService.findAll();
   // }
+  @Get()
+  findAll() {
+    return this.serviceRequestService.findAll();
+  }
 }

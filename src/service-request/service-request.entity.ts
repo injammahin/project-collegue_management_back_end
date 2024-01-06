@@ -1,5 +1,6 @@
 // src/service-request.entity.ts
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { User } from 'src/auth/user.entity';
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
 export class ServiceRequest {
@@ -32,4 +33,6 @@ export class ServiceRequest {
 
   @Column()
   serviceDetails: string;
+  @ManyToOne(() => User, (user) => user.serviceRequests)
+  user: User;
 }
