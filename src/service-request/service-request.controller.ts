@@ -57,9 +57,8 @@ export class ServiceRequestController {
     return this.serviceRequestService.update(parseInt(id), body);
   }
 
-  // // Delete operation
-  // @Delete(':id')
-  // async deleteRequest(@Param('id') id: number) {
-  //   return this.serviceRequestService.remove(id);
-  // }
+  @Delete('/:id')
+  removeUser(@Param('id') id: string) {
+    return this.serviceRequestService.remove(parseInt(id));
+  }
 }

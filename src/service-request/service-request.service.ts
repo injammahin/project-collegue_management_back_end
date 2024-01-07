@@ -74,4 +74,11 @@ export class ServiceRequestService {
     Object.assign(serviceRequest, attrs);
     return this.repo.save(serviceRequest);
   }
+  async remove(id: number) {
+    const payment = await this.findOne(id);
+    if (!payment) {
+      throw new NotFoundException('user not found');
+    }
+    return this.repo.remove(payment);
+  }
 }
