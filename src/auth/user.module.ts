@@ -17,16 +17,27 @@ import { employeeController } from 'src/department/employee_information/employee
 import { employeeAuthService } from 'src/department/employee_information/employee.auth';
 import { employeeService } from 'src/department/employee_information/employee.service';
 import { Employee } from 'src/department/employee_information/employee.entity';
+import { Maintenance } from 'src/maintenance_request_form/maintetance.entity';
+import { MaintenanceController } from 'src/maintenance_request_form/maintenance.controller';
+import { maintenanceAuthService } from 'src/maintenance_request_form/maintenance.auth';
+import { MaintenanceRequestService } from 'src/maintenance_request_form/maintenance.service';
 
 @Module({
   imports: [
-    TypeOrmModule.forFeature([User, ServiceRequest, Department, Employee]),
+    TypeOrmModule.forFeature([
+      User,
+      ServiceRequest,
+      Department,
+      Employee,
+      Maintenance,
+    ]),
   ],
   controllers: [
     UsersController,
     ServiceRequestController,
     departmentController,
     employeeController,
+    MaintenanceController,
   ],
   providers: [
     UsersService,
@@ -37,6 +48,8 @@ import { Employee } from 'src/department/employee_information/employee.entity';
     departmentAuthService,
     employeeAuthService,
     employeeService,
+    maintenanceAuthService,
+    MaintenanceRequestService,
   ],
 })
 export class UsersModule {}
