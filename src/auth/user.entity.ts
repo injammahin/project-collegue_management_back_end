@@ -15,7 +15,7 @@ export class User {
   password: string;
   @OneToMany(() => ServiceRequest, (serviceRequest) => serviceRequest.user)
   serviceRequests: ServiceRequest[];
-  @OneToMany(() => Maintenance, (Maintenance) => Maintenance.user)
+  @OneToMany(() => Maintenance, (maintenance) => maintenance.user)
   maintenances: Maintenance[];
   length: any;
 }
