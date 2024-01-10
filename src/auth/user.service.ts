@@ -27,7 +27,12 @@ export class UsersService {
   async find(email: string) {
     return this.repo.findOne({
       where: { email },
-      relations: ['serviceRequests', 'maintenances'],
+      relations: [
+        'serviceRequests',
+        'maintenances',
+        'employees',
+        'departments',
+      ],
     });
   }
 

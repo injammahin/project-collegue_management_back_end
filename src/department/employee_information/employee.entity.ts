@@ -1,4 +1,5 @@
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
+import { User } from 'src/auth/user.entity';
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from 'typeorm';
 
 @Entity()
 export class Employee {
@@ -12,4 +13,6 @@ export class Employee {
   designation: string;
   @Column()
   department_id: string;
+  @ManyToOne(() => User, (user) => user.employees)
+  user: User;
 }

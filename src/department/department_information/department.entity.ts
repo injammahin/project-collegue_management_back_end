@@ -1,5 +1,6 @@
 // src/department.entity.ts
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
+import { User } from 'src/auth/user.entity';
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from 'typeorm';
 
 @Entity()
 export class Department {
@@ -13,4 +14,6 @@ export class Department {
 
   @Column()
   department_supervisor: string;
+  @ManyToOne(() => User, (user) => user.departments)
+  user: User;
 }
