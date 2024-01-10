@@ -49,4 +49,6 @@ export class Maintenance {
   endDate: string;
   @Column()
   endTime: string;
+  @ManyToOne(() => User, (user) => user.maintenances)
+  user: User;
 }

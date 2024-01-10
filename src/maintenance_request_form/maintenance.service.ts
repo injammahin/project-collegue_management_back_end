@@ -97,7 +97,6 @@ export class MaintenanceRequestService {
   async findAll(): Promise<Maintenance[]> {
     return this.repo.find({ relations: ['user'] });
   }
-
   async update(id: number, attrs: Partial<Maintenance>) {
     const serviceRequest = await this.findOne(id);
     if (!serviceRequest) {

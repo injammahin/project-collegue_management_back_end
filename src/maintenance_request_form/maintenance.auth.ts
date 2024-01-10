@@ -4,6 +4,7 @@ import {
   NotFoundException,
 } from '@nestjs/common';
 import { MaintenanceRequestService } from './maintenance.service';
+import { User } from 'src/auth/user.entity';
 @Injectable()
 export class maintenanceAuthService {
   constructor(private MaintenanceRequestService: MaintenanceRequestService) {}

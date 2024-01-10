@@ -1,3 +1,4 @@
+import { Maintenance } from 'src/maintenance_request_form/maintetance.entity';
 import { ServiceRequest } from 'src/service-request/service-request.entity';
 import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
 
@@ -14,5 +15,7 @@ export class User {
   password: string;
   @OneToMany(() => ServiceRequest, (serviceRequest) => serviceRequest.user)
   serviceRequests: ServiceRequest[];
+  @OneToMany(() => Maintenance, (Maintenance) => Maintenance.user)
+  maintenances: Maintenance[];
   length: any;
 }
