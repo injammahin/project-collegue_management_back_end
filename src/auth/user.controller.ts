@@ -62,9 +62,8 @@ export class UsersController {
   @Get('/profile')
   async profile(@Request() body: any) {
     const user = await this.usersService.find(body.headers.id);
-    console.log('====================================');
+
     console.log(body.headers.id);
-    console.log('====================================');
 
     if (!user) {
       return 'failed';
