@@ -63,7 +63,7 @@ export class UsersController {
   async profile(@Request() body: any) {
     const user = await this.usersService.find(body.headers.id);
 
-    console.log(body.headers.id);
+    // console.log(body.headers.id);
 
     if (!user) {
       return 'failed';

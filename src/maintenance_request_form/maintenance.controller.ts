@@ -13,7 +13,7 @@ import { MaintenanceRequestService } from './maintenance.service';
 import { maintenanceAuthService } from './maintenance.auth';
 import { MaintenanceDto } from 'src/dto/maintenance.dto';
 import { UpdateMaintenanceDto } from 'src/dto/update.maintenance.dto';
-@Controller('service-requests')
+@Controller('maintaintance')
 export class MaintenanceController {
   constructor(
     private readonly MaintenanceRequestService: MaintenanceRequestService,
