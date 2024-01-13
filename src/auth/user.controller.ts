@@ -9,6 +9,7 @@ import {
   Patch,
   Session,
   ValidationPipe,
+  Request,
 } from '@nestjs/common';
 import { CreateUserDto } from 'src/dto/crete-user.dto';
 import { UsersService } from './user.service';
@@ -59,8 +60,11 @@ export class UsersController {
     return this.usersService.update(parseInt(id), body);
   }
   @Get('/profile')
-  async profile(@Body() body: any) {
-    const user = await this.usersService.find(body.email);
+  async profile(@Request() body: any) {
+    const user = await this.usersService.find(body.headers.id);
+    console.log('====================================');
+    console.log(body.headers.id);
+    console.log('====================================');
 
     if (!user) {
       return 'failed';
