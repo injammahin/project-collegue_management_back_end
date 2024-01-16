@@ -17,6 +17,7 @@ import { AuthService } from './user.auth';
 import { LoginUserDto } from '../dto/login-user.dto';
 
 import { UpdateDto } from '../dto/update.dto';
+import { Role } from './role.decorator';
 
 @Controller('auth')
 export class UsersController {
@@ -27,38 +28,44 @@ export class UsersController {
 
   @Post('/signout')
   logout() {
-    return 'sign out';
+    return 'Sign out';
   }
+
+  @Role('admin') // Only admin can access this endpoint
   @Post('/signup')
   async createUser(@Body() body: CreateUserDto, @Session() session: any) {
     const user = await this.authService.signup(
       body.name,
       body.email,
       body.password,
+      body.role,
     );
 
     return user;
   }
+
   @Post('/signin')
   async signin(@Body() body: LoginUserDto, @Session() session: any) {
     const user = await this.authService.signin(body.email, body.password);
 
     return user;
   }
+  @Role('user')
   @Post('/:id')
   findUser(@Param('id') id: string) {
     return this.usersService.findOne(parseInt(id));
   }
-
+  @Role('user')
   @Delete('/:id')
   removeUser(@Param('id') id: string) {
     return this.usersService.remove(parseInt(id));
   }
-
+  @Role('user')
   @Put('/:id')
   updateUser(@Param('id') id: string, @Body() body: UpdateDto) {
     return this.usersService.update(parseInt(id), body);
   }
+  @Role('user')
   @Get('/profile')
   async profile(@Request() body: any) {
     const user = await this.usersService.find(body.headers.id);

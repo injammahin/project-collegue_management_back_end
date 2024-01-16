@@ -15,6 +15,9 @@ export class User {
   email: string;
   @Column()
   password: string;
+  @Column({ default: 'user' }) // Default role is 'user'
+  role: string;
+
   @OneToMany(() => ServiceRequest, (serviceRequest) => serviceRequest.user)
   serviceRequests: ServiceRequest[];
   @OneToMany(() => Maintenance, (maintenance) => maintenance.user)
