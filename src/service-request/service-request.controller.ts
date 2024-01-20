@@ -67,4 +67,12 @@ export class ServiceRequestController {
   async approveServiceRequest(@Param('id') id: number) {
     return this.serviceRequestService.updateApprovalStatus(id, 'Approved');
   }
+  @Patch('/decline/:id')
+  async declineServiceRequest(@Param('id') id: number) {
+    return this.serviceRequestService.updateApprovalStatus(id, 'Declined');
+  }
+  @Patch('/revision/:id')
+  async revisionServiceRequest(@Param('id') id: number) {
+    return this.serviceRequestService.updateApprovalStatus(id, 'Revision');
+  }
 }
