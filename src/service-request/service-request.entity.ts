@@ -33,6 +33,8 @@ export class ServiceRequest {
 
   @Column()
   serviceDetails: string;
+  @Column({ default: 'Pending Approval' })
+  approvalStatus: string;
   @ManyToOne(() => User, (user) => user.serviceRequests)
   user: User;
 }

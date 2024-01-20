@@ -5,6 +5,7 @@ import {
   Delete,
   Get,
   Param,
+  Patch,
   Post,
   Put,
 } from '@nestjs/common';
@@ -56,5 +57,14 @@ export class ServiceRequestController {
   @Delete('/:id')
   removeUser(@Param('id') id: string) {
     return this.serviceRequestService.remove(parseInt(id));
+  }
+  @Get('/pending')
+  async getPendingServiceRequests() {
+    return this.serviceRequestService.findAll();
+  }
+
+  @Patch('/approve/:id')
+  async approveServiceRequest(@Param('id') id: number) {
+    return this.serviceRequestService.updateApprovalStatus(id, 'Approved');
   }
 }

@@ -49,6 +49,7 @@ export class ServiceRequestService {
       reasonOfRequest,
 
       serviceDetails,
+      approvalStatus: 'Pending Approval',
     });
 
     return this.repo.save(payment);
@@ -80,5 +81,16 @@ export class ServiceRequestService {
       throw new NotFoundException('user not found');
     }
     return this.repo.remove(payment);
+  }
+  async updateApprovalStatus(id: number, newStatus: string) {
+    // Instead of using findOneBy, use findOne with id as an argument
+    const serviceRequest = await this.findOne(id);
+
+    if (!serviceRequest) {
+      throw new NotFoundException(`Service request with ID ${id} not found`);
+    }
+
+    serviceRequest.approvalStatus = newStatus;
+    return this.repo.save(serviceRequest);
   }
 }

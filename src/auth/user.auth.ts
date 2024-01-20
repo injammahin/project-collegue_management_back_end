@@ -15,7 +15,7 @@ export class AuthService {
     name: string,
     email: string,
     password: string,
-    role: string = 'user',
+    role: string = '',
   ) {
     // See if email is in use
     const users = await this.usersService.find(email);
