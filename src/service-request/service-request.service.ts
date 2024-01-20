@@ -93,4 +93,31 @@ export class ServiceRequestService {
     serviceRequest.approvalStatus = newStatus;
     return this.repo.save(serviceRequest);
   }
+  ////////
+  async findAllFromITDepartment(): Promise<ServiceRequest[]> {
+    return this.repo.find({ where: { department: 'IT' } });
+  }
+
+  // Method to release a request
+  async releaseRequest(id: number) {
+    const request = await this.findOne(id);
+    if (!request) {
+      throw new NotFoundException('Request not found');
+    }
+    // Update logic for releasing the request (e.g., changing its status)
+    request.supervisorStatus = 'Released';
+    return this.repo.save(request);
+  }
+
+  // Method to block a request
+  async blockRequest(id: number) {
+    const request = await this.findOne(id);
+    if (!request) {
+      throw new NotFoundException('Request not found');
+    }
+    // Update logic for blocking the request (e.g., changing its status)
+    request.supervisorStatus = 'Blocked';
+    return this.repo.save(request);
+  }
+  /////////
 }

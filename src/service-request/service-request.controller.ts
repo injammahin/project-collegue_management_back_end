@@ -75,4 +75,20 @@ export class ServiceRequestController {
   async revisionServiceRequest(@Param('id') id: number) {
     return this.serviceRequestService.updateApprovalStatus(id, 'Revision');
   }
+  //////////
+
+  @Get('/it-department')
+  getITDepartmentRequests() {
+    return this.serviceRequestService.findAllFromITDepartment();
+  }
+
+  @Patch('/release/:id')
+  releaseRequest(@Param('id') id: number) {
+    return this.serviceRequestService.releaseRequest(id);
+  }
+
+  @Patch('/block/:id')
+  blockRequest(@Param('id') id: number) {
+    return this.serviceRequestService.blockRequest(id);
+  }
 }
