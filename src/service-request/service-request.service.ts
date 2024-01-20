@@ -50,6 +50,7 @@ export class ServiceRequestService {
 
       serviceDetails,
       approvalStatus: 'Pending Approval',
+      // supervisorStatus:pending,
     });
 
     return this.repo.save(payment);
@@ -82,16 +83,39 @@ export class ServiceRequestService {
     }
     return this.repo.remove(payment);
   }
-  async updateApprovalStatus(id: number, newStatus: string) {
-    // Instead of using findOneBy, use findOne with id as an argument
-    const serviceRequest = await this.findOne(id);
+  async findAllreleasedForm(): Promise<ServiceRequest[]> {
+    return this.repo.find({ where: { supervisorStatus: 'Released' } });
+  }
 
-    if (!serviceRequest) {
-      throw new NotFoundException(`Service request with ID ${id} not found`);
+  // Method to release a request
+  async approve(id: number) {
+    const request = await this.findOne(id);
+    if (!request) {
+      throw new NotFoundException('Request not found');
     }
+    // Update logic for releasing the request (e.g., changing its status)
+    request.approvalStatus = 'approve';
+    return this.repo.save(request);
+  }
 
-    serviceRequest.approvalStatus = newStatus;
-    return this.repo.save(serviceRequest);
+  // Method to block a request
+  async decline(id: number) {
+    const request = await this.findOne(id);
+    if (!request) {
+      throw new NotFoundException('Request not found');
+    }
+    // Update logic for blocking the request (e.g., changing its status)
+    request.approvalStatus = 'decline';
+    return this.repo.save(request);
+  }
+  async revision(id: number) {
+    const request = await this.findOne(id);
+    if (!request) {
+      throw new NotFoundException('Request not found');
+    }
+    // Update logic for blocking the request (e.g., changing its status)
+    request.approvalStatus = 'revision';
+    return this.repo.save(request);
   }
   ////////
   async findAllFromITDepartment(): Promise<ServiceRequest[]> {
