@@ -135,7 +135,7 @@ export class ServiceRequestController {
     return this.serviceRequestService.confirm(id);
   }
 
-  @Patch('/confirm/:id')
+  @Patch('/cancel/:id')
   cancel(@Param('id') id: number) {
     return this.serviceRequestService.cancel(id);
   }
