@@ -52,6 +52,7 @@ export class ServiceRequestService {
       approvalStatus: 'Pending Approval',
       // supervisorStatus:pending,
       cisoStatus: 'pending',
+      HeadOfDivisionStatus: 'Pending Approval',
     });
 
     return this.repo.save(payment);
@@ -179,4 +180,29 @@ export class ServiceRequestService {
   //   request.approvalStatus = 'revision';
   //   return this.repo.save(request);
   // }
+  async findFinalApproved(): Promise<ServiceRequest[]> {
+    return this.repo.find({ where: { cisoStatus: 'approveed' } });
+  }
+
+  // Method to release a request
+  async confirm(id: number) {
+    const request = await this.findOne(id);
+    if (!request) {
+      throw new NotFoundException('Request not found');
+    }
+    // Update logic for releasing the request (e.g., changing its status)
+    request.HeadOfDivisionStatus = 'confirm';
+    return this.repo.save(request);
+  }
+
+  // Method to block a request
+  async cancel(id: number) {
+    const request = await this.findOne(id);
+    if (!request) {
+      throw new NotFoundException('Request not found');
+    }
+    // Update logic for blocking the request (e.g., changing its status)
+    request.HeadOfDivisionStatus = 'cancel';
+    return this.repo.save(request);
+  }
 }

@@ -125,4 +125,18 @@ export class ServiceRequestController {
   reject(@Param('id') id: number) {
     return this.serviceRequestService.reject(id);
   }
+  @Get('/confirm')
+  findFinalApproved() {
+    return this.serviceRequestService.findFinalApproved();
+  }
+
+  @Patch('/confirm/:id')
+  confirm(@Param('id') id: number) {
+    return this.serviceRequestService.confirm(id);
+  }
+
+  @Patch('/confirm/:id')
+  cancel(@Param('id') id: number) {
+    return this.serviceRequestService.cancel(id);
+  }
 }
