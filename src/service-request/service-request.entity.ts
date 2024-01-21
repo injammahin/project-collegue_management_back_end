@@ -33,10 +33,12 @@ export class ServiceRequest {
 
   @Column()
   serviceDetails: string;
-  @Column({ default: 'Pending ' })
+  @Column({ default: 'Pending Approval' })
   supervisorStatus: string;
   @Column({ default: 'Pending Approval' })
   approvalStatus: string;
+  @Column({ default: 'Pending Approval' })
+  cisoStatus: string;
   @ManyToOne(() => User, (user) => user.serviceRequests)
   user: User;
 }

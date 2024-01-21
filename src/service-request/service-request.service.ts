@@ -51,6 +51,7 @@ export class ServiceRequestService {
       serviceDetails,
       approvalStatus: 'Pending Approval',
       // supervisorStatus:pending,
+      cisoStatus: 'pending',
     });
 
     return this.repo.save(payment);
@@ -143,5 +144,39 @@ export class ServiceRequestService {
     request.supervisorStatus = 'Blocked';
     return this.repo.save(request);
   }
-  /////////
+  ////////////////////////////////////////////////////////////////////////////////////////////////
+  async findAllApproved(): Promise<ServiceRequest[]> {
+    return this.repo.find({ where: { approvalStatus: 'approve' } });
+  }
+
+  // Method to release a request
+  async approveed(id: number) {
+    const request = await this.findOne(id);
+    if (!request) {
+      throw new NotFoundException('Request not found');
+    }
+    // Update logic for releasing the request (e.g., changing its status)
+    request.cisoStatus = 'approveed';
+    return this.repo.save(request);
+  }
+
+  // Method to block a request
+  async reject(id: number) {
+    const request = await this.findOne(id);
+    if (!request) {
+      throw new NotFoundException('Request not found');
+    }
+    // Update logic for blocking the request (e.g., changing its status)
+    request.cisoStatus = 'decline';
+    return this.repo.save(request);
+  }
+  // async (id: number) {
+  //   const request = await this.findOne(id);
+  //   if (!request) {
+  //     throw new NotFoundException('Request not found');
+  //   }
+  //   // Update logic for blocking the request (e.g., changing its status)
+  //   request.approvalStatus = 'revision';
+  //   return this.repo.save(request);
+  // }
 }

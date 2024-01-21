@@ -110,4 +110,19 @@ export class ServiceRequestController {
   blockRequest(@Param('id') id: number) {
     return this.serviceRequestService.blockRequest(id);
   }
+  ////////////////////////////////////////////////////////////////
+  @Get('/approved')
+  findAllApproved() {
+    return this.serviceRequestService.findAllApproved();
+  }
+
+  @Patch('/approved/:id')
+  approveed(@Param('id') id: number) {
+    return this.serviceRequestService.approveed(id);
+  }
+
+  @Patch('/reject/:id')
+  reject(@Param('id') id: number) {
+    return this.serviceRequestService.reject(id);
+  }
 }
