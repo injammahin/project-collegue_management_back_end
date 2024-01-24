@@ -19,4 +19,6 @@ export class ServiceRequestDto {
   reasonOfRequest: string;
   @IsNotEmpty()
   serviceDetails: string;
+  @IsNotEmpty()
+  submissionDateTime: string;
 }

@@ -30,6 +30,7 @@ export class ServiceRequestService {
     reasonOfRequest: string,
 
     serviceDetails: string,
+    submissionDateTime: string,
   ) {
     const payment = this.repo.create({
       requestNo,
@@ -49,10 +50,11 @@ export class ServiceRequestService {
       reasonOfRequest,
 
       serviceDetails,
-      approvalStatus: 'Pending Approval',
-      // supervisorStatus:pending,
-      cisoStatus: 'pending',
-      HeadOfDivisionStatus: 'Pending Approval',
+      approvalStatus: 'Pending',
+      // supervisorStatus: pending,
+      cisoStatus: 'Pending',
+      HeadOfDivisionStatus: 'Pending',
+      submissionDateTime,
     });
 
     return this.repo.save(payment);

@@ -41,7 +41,9 @@ export class ServiceRequestController {
       body.reasonOfRequest,
 
       body.serviceDetails,
+      body.submissionDateTime,
     );
+    console.log(body);
     return request;
   }
 
