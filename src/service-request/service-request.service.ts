@@ -31,6 +31,7 @@ export class ServiceRequestService {
 
     serviceDetails: string,
     submissionDateTime: string,
+    user: string,
   ) {
     const payment = this.repo.create({
       requestNo,
@@ -50,6 +51,7 @@ export class ServiceRequestService {
       reasonOfRequest,
 
       serviceDetails,
+      user,
       approvalStatus: 'Pending',
       // supervisorStatus: pending,
       cisoStatus: 'Pending',

@@ -21,4 +21,5 @@ export class ServiceRequestDto {
   serviceDetails: string;
   @IsNotEmpty()
   submissionDateTime: string;
+  user: any;
 }

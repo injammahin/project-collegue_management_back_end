@@ -26,6 +26,7 @@ export class ServiceAuthService {
 
     serviceDetails: string,
     submissionDateTime: string,
+    user: string,
   ) {
     const ServiceRequest = await this.ServiceRequestService.create(
       requestNo,
@@ -46,6 +47,7 @@ export class ServiceAuthService {
 
       serviceDetails,
       submissionDateTime,
+      user,
     );
 
     return ServiceRequest;
