@@ -56,7 +56,9 @@ export class MaintenanceController {
       body.endDate,
 
       body.endTime,
+      body.user,
     );
+
     return request;
   }
 

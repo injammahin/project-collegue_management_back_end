@@ -7,7 +7,6 @@ import { UpdateRequestDto } from 'src/dto/update-request.dto';
 
 @Injectable()
 export class MaintenanceRequestService {
-  user: any;
   constructor(
     @InjectRepository(Maintenance) private repo: Repository<Maintenance>, // private emailService: EmailService,
   ) {}
@@ -46,6 +45,7 @@ export class MaintenanceRequestService {
     endDate: string,
 
     endTime: string,
+    user: string,
   ) {
     const payment = this.repo.create({
       requestNumber,
@@ -81,6 +81,7 @@ export class MaintenanceRequestService {
       endDate,
 
       endTime,
+      user,
     });
 
     return this.repo.save(payment);

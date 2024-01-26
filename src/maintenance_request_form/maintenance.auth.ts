@@ -42,6 +42,7 @@ export class maintenanceAuthService {
     endDate: string,
 
     endTime: string,
+    user: string,
   ) {
     const ServiceRequest = await this.MaintenanceRequestService.create(
       requestNumber,
@@ -77,6 +78,7 @@ export class maintenanceAuthService {
       endDate,
 
       endTime,
+      user,
     );
 
     return ServiceRequest;

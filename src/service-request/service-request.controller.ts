@@ -44,7 +44,7 @@ export class ServiceRequestController {
       body.submissionDateTime,
       body.user,
     );
-    console.log(body);
+
     return request;
   }
 

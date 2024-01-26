@@ -42,4 +42,5 @@ export class MaintenanceDto {
   endDate: string;
   @IsNotEmpty()
   endTime: string;
+  user: any;
 }
