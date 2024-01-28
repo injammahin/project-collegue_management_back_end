@@ -15,6 +15,10 @@ export class AuthService {
     name: string,
     email: string,
     password: string,
+    user_id: string,
+    employee_name: string,
+    designation: string,
+    department_id: string,
     role: string = '',
   ) {
     // See if email is in use
@@ -28,7 +32,16 @@ export class AuthService {
       throw new BadRequestException('Invalid role for sign up');
     }
 
-    const user = await this.usersService.create(name, email, password, role);
+    const user = await this.usersService.create(
+      name,
+      email,
+      password,
+      role,
+      user_id,
+      employee_name,
+      designation,
+      department_id,
+    );
 
     // Return the user
     return user;

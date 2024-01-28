@@ -55,6 +55,7 @@ export class ServiceRequestController {
       body.revokeBy,
       body.deviceApprovedBy,
     );
+    console.log(body);
 
     return request;
   }

@@ -11,5 +11,13 @@ export class CreateUserDto {
 
   @IsString()
   password: string;
+  @IsNotEmpty()
+  user_id: string;
+  @IsNotEmpty()
+  employee_name: string;
+  @IsNotEmpty()
+  designation: string;
+  @IsNotEmpty()
+  department_id: string;
   role?: string;
 }
