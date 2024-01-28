@@ -53,6 +53,7 @@ export class ServiceRequestController {
       body.readBy,
       body.ReturnTimeDate,
       body.revokeBy,
+      body.deviceApprovedBy,
     );
 
     return request;

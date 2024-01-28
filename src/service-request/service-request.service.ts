@@ -42,6 +42,7 @@ export class ServiceRequestService {
     ReturnTimeDate: string,
     revokeBy: string,
     execusion: string,
+    deviceApprovedBy: string,
   ) {
     const payment = this.repo.create({
       requestNo,
@@ -72,6 +73,7 @@ export class ServiceRequestService {
       readBy,
       ReturnTimeDate,
       revokeBy,
+      deviceApprovedBy,
 
       approvalStatus: 'Pending',
       // supervisorStatus: pending,exe

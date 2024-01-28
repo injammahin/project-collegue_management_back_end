@@ -45,6 +45,8 @@ export class ServiceRequest {
   @Column()
   WorkTeamWithId: string;
   @Column()
+  deviceApprovedBy: string;
+  @Column()
   readBy: string;
   @Column()
   ReturnTimeDate: string;

@@ -37,6 +37,7 @@ export class ServiceAuthService {
     readBy: string,
     ReturnTimeDate: string,
     revokeBy: string,
+    deviceApprovedBy: string,
   ) {
     const ServiceRequest = await this.ServiceRequestService.create(
       requestNo,
@@ -68,6 +69,7 @@ export class ServiceAuthService {
       readBy,
       ReturnTimeDate,
       revokeBy,
+      deviceApprovedBy,
     );
 
     return ServiceRequest;

@@ -42,4 +42,6 @@ export class ServiceRequestDto {
   ReturnTimeDate: string;
   @IsOptional()
   revokeBy: string;
+  @IsOptional()
+  deviceApprovedBy: string;
 }
