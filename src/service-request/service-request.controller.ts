@@ -43,6 +43,16 @@ export class ServiceRequestController {
       body.serviceDetails,
       body.submissionDateTime,
       body.user,
+      body.accessTimeDuration,
+      body.accessDateDuration,
+      body.execusion,
+      body.vandorName,
+      body.vandorAssignedReason,
+      body.deviceRequired,
+      body.WorkTeamWithId,
+      body.readBy,
+      body.ReturnTimeDate,
+      body.revokeBy,
     );
 
     return request;

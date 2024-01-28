@@ -32,6 +32,16 @@ export class ServiceRequestService {
     serviceDetails: string,
     submissionDateTime: string,
     user: string,
+    accessDateDuration: string,
+    accessTimeDuration: string,
+    vandorName: string,
+    vandorAssignedReason: string,
+    deviceRequired: string,
+    WorkTeamWithId: string,
+    readBy: string,
+    ReturnTimeDate: string,
+    revokeBy: string,
+    execusion: string,
   ) {
     const payment = this.repo.create({
       requestNo,
@@ -52,8 +62,19 @@ export class ServiceRequestService {
 
       serviceDetails,
       user,
+      accessDateDuration,
+      accessTimeDuration,
+      execusion,
+      vandorName,
+      vandorAssignedReason,
+      deviceRequired,
+      WorkTeamWithId,
+      readBy,
+      ReturnTimeDate,
+      revokeBy,
+
       approvalStatus: 'Pending',
-      // supervisorStatus: pending,
+      // supervisorStatus: pending,exe
       cisoStatus: 'Pending',
       HeadOfDivisionStatus: 'Pending',
       submissionDateTime,

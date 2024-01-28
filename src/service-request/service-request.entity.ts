@@ -30,7 +30,26 @@ export class ServiceRequest {
 
   @Column()
   reasonOfRequest: string;
-
+  @Column()
+  accessDateDuration: string;
+  @Column()
+  accessTimeDuration: string;
+  @Column()
+  execusion: string;
+  @Column()
+  vandorName: string;
+  @Column()
+  vandorAssignedReason: string;
+  @Column()
+  deviceRequired: string;
+  @Column()
+  WorkTeamWithId: string;
+  @Column()
+  readBy: string;
+  @Column()
+  ReturnTimeDate: string;
+  @Column()
+  revokeBy: string;
   @Column()
   serviceDetails: string;
   @Column({ default: 'Pending ' })
