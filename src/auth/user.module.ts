@@ -21,6 +21,8 @@ import { Maintenance } from 'src/maintenance_request_form/maintetance.entity';
 import { MaintenanceController } from 'src/maintenance_request_form/maintenance.controller';
 import { maintenanceAuthService } from 'src/maintenance_request_form/maintenance.auth';
 import { MaintenanceRequestService } from 'src/maintenance_request_form/maintenance.service';
+import { RoleController } from './role/role.controller';
+import { RoleService } from './role/role.service';
 
 @Module({
   imports: [
@@ -38,6 +40,7 @@ import { MaintenanceRequestService } from 'src/maintenance_request_form/maintena
     departmentController,
     employeeController,
     MaintenanceController,
+    RoleController,
   ],
   providers: [
     UsersService,
@@ -50,6 +53,7 @@ import { MaintenanceRequestService } from 'src/maintenance_request_form/maintena
     employeeService,
     maintenanceAuthService,
     MaintenanceRequestService,
+    RoleService,
   ],
 })
 export class UsersModule {}
