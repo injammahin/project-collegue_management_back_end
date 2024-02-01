@@ -234,4 +234,91 @@ export class ServiceRequestService {
   async findAllFromAlternativeChannelsDepartment(): Promise<ServiceRequest[]> {
     return this.repo.find({ where: { department: 'Alternative Channels' } });
   }
+  async findAllFromApplicationUserManagementDepartment(): Promise<
+    ServiceRequest[]
+  > {
+    return this.repo.find({
+      where: { department: 'Application User Management' },
+    });
+  }
+  async findAllFromCardsAndATMSystemDepartment(): Promise<ServiceRequest[]> {
+    return this.repo.find({ where: { department: 'Cards & ATM System' } });
+  }
+  async findAllFromCorporateApplicationDepartment(): Promise<ServiceRequest[]> {
+    return this.repo.find({ where: { department: 'Corporate Application' } });
+  }
+  async findAllFromDataCenterManagementDepartment(): Promise<ServiceRequest[]> {
+    return this.repo.find({ where: { department: 'Data Center Management' } });
+  }
+  async findAllFromDataCenterPassiveInfrastructureDepartment(): Promise<
+    ServiceRequest[]
+  > {
+    return this.repo.find({
+      where: { department: 'Data Center Passive Infrastructure' },
+    });
+  }
+  async findAllFromDatabaseAdministrationDepartment(): Promise<
+    ServiceRequest[]
+  > {
+    return this.repo.find({ where: { department: 'Database Administration' } });
+  }
+  async findAllFromHelpDeskDepartment(): Promise<ServiceRequest[]> {
+    return this.repo.find({ where: { department: 'Help Desk' } });
+  }
+  async findAllITSecurityAndComplianceDepartment(): Promise<ServiceRequest[]> {
+    return this.repo.find({
+      where: { department: 'IT Security & Compliance' },
+    });
+  }
+  async findAllFromMiddlewareAdministrationDepartment(): Promise<
+    ServiceRequest[]
+  > {
+    return this.repo.find({
+      where: { department: 'Middleware Administration' },
+    });
+  }
+  async findAllNewInitiativesAndProjectsDepartment(): Promise<
+    ServiceRequest[]
+  > {
+    return this.repo.find({
+      where: { department: 'New Initiatives & Projects' },
+    });
+  }
+  async findAllFromProcurementzzAndAssetManagementDepartment(): Promise<
+    ServiceRequest[]
+  > {
+    return this.repo.find({
+      where: { department: 'Procurement & Asset Management' },
+    });
+  }
+  async findAllFromNetworkManagementDepartment(): Promise<ServiceRequest[]> {
+    return this.repo.find({ where: { department: 'Network Management' } });
+  }
+  async findAllFromRetailApplicationDepartment(): Promise<ServiceRequest[]> {
+    return this.repo.find({ where: { department: 'Retail Application' } });
+  }
+  async findAllFromServerAndStorageManagementDepartment(): Promise<
+    ServiceRequest[]
+  > {
+    return this.repo.find({
+      where: { department: 'Server & Storage Management' },
+    });
+  }
+  async findAllFromWindowsSystemManagementDepartment(): Promise<
+    ServiceRequest[]
+  > {
+    return this.repo.find({
+      where: { department: 'Windows System Management' },
+    });
+  }
+  async findAllFromMISAndDataSupportDepartment(): Promise<ServiceRequest[]> {
+    return this.repo.find({
+      where: { department: 'MIS & Data Support' },
+    });
+  }
+  async findAllFromSwiftDepartment(): Promise<ServiceRequest[]> {
+    return this.repo.find({
+      where: { department: 'Swift' },
+    });
+  }
 }

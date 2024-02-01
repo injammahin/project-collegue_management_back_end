@@ -156,8 +156,76 @@ export class ServiceRequestController {
   }
   //find by department name
   ////////////////////////////////
-  @Get('/Alternative-Channels')
-  getITDepartmentRequests() {
+  @Get('/Alternative-Channels') //done
+  getAlternativeChannelsDepartmentRequests() {
     return this.serviceRequestService.findAllFromAlternativeChannelsDepartment();
+  }
+  @Get('/ApplicationUser-Management')
+  getApplicationUserManagementDepartmentRequests() {
+    return this.serviceRequestService.findAllFromApplicationUserManagementDepartment();
+  }
+  @Get('/CardsAndATMSystem')
+  getCardsAndATMSystemDepartmentRequests() {
+    return this.serviceRequestService.findAllFromCardsAndATMSystemDepartment();
+  }
+  @Get('/CorporateApplication')
+  getCorporateApplicationDepartmentRequests() {
+    return this.serviceRequestService.findAllFromCorporateApplicationDepartment();
+  }
+  @Get('/DataCenterManagement')
+  getDataCenterManagementDepartmentRequests() {
+    return this.serviceRequestService.findAllFromDataCenterManagementDepartment();
+  }
+  @Get('/DataCenterPassiveInfrastructure')
+  getDataCenterPassiveInfrastructureDepartmentRequests() {
+    return this.serviceRequestService.findAllFromDataCenterPassiveInfrastructureDepartment();
+  }
+  @Get('/DatabaseAdministration')
+  getDatabaseAdministrationDepartmentRequests() {
+    return this.serviceRequestService.findAllFromDatabaseAdministrationDepartment();
+  }
+  @Get('/ITSecurityAndCompliance')
+  getITSecurityAndComplianceDepartmentRequests() {
+    return this.serviceRequestService.findAllITSecurityAndComplianceDepartment();
+  }
+  @Get('/MiddlewareAdministration')
+  getMiddlewareAdministrationDepartmentRequests() {
+    return this.serviceRequestService.findAllFromMiddlewareAdministrationDepartment();
+  }
+  @Get('/MISAndDataSupport')
+  getMISAndDataSupportDepartmentRequests() {
+    return this.serviceRequestService.findAllFromMISAndDataSupportDepartment();
+  }
+  @Get('/NetworkManagement')
+  getNetworkManagementDepartmentRequests() {
+    return this.serviceRequestService.findAllFromNetworkManagementDepartment();
+  }
+  @Get('/HelpDesk')
+  getHelpDeskDepartmentRequests() {
+    return this.serviceRequestService.findAllFromHelpDeskDepartment();
+  }
+  @Get('/InitiativesAndProjects')
+  getInitiativesAndProjectsDepartmentRequests() {
+    return this.serviceRequestService.findAllNewInitiativesAndProjectsDepartment();
+  }
+  @Get('/ProcurementzzAndAssetManagement')
+  getProcurementzzAndAssetManagementDepartmentRequests() {
+    return this.serviceRequestService.findAllFromProcurementzzAndAssetManagementDepartment();
+  }
+  @Get('/RetailApplication')
+  getRetailApplicationDepartmentRequests() {
+    return this.serviceRequestService.findAllFromRetailApplicationDepartment();
+  }
+  @Get('/ServerAndStorageManagement')
+  getServerAndStorageManagementDepartmentRequests() {
+    return this.serviceRequestService.findAllFromServerAndStorageManagementDepartment();
+  }
+  @Get('/WindowsSystemManagement')
+  getWindowsSystemManagementDepartmentRequests() {
+    return this.serviceRequestService.findAllFromWindowsSystemManagementDepartment();
+  }
+  @Get('/Swift')
+  getSwiftDepartmentRequests() {
+    return this.serviceRequestService.findAllFromSwiftDepartment();
   }
 }
