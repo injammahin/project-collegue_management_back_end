@@ -111,10 +111,10 @@ export class ServiceRequestController {
     return this.serviceRequestService.revision(id);
   }
   ////
-  @Get('/it-department')
-  getITDepartmentRequests() {
-    return this.serviceRequestService.findAllFromITDepartment();
-  }
+  // @Get('/it-department')
+  // getITDepartmentRequests() {
+  //   return this.serviceRequestService.findAllFromAlternativeChannelsDepartment();
+  // }
 
   @Patch('/release/:id')
   releaseRequest(@Param('id') id: number) {
@@ -153,5 +153,11 @@ export class ServiceRequestController {
   @Patch('/cancel/:id')
   cancel(@Param('id') id: number) {
     return this.serviceRequestService.cancel(id);
+  }
+  //find by department name
+  ////////////////////////////////
+  @Get('/Alternative-Channels')
+  getITDepartmentRequests() {
+    return this.serviceRequestService.findAllFromAlternativeChannelsDepartment();
   }
 }

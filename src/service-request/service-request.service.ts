@@ -147,9 +147,6 @@ export class ServiceRequestService {
     return this.repo.save(request);
   }
   ////////
-  async findAllFromITDepartment(): Promise<ServiceRequest[]> {
-    return this.repo.find({ where: { department: 'IT' } });
-  }
 
   // Method to release a request
   async releaseRequest(id: number) {
@@ -231,5 +228,10 @@ export class ServiceRequestService {
     // Update logic for blocking the request (e.g., changing its status)
     request.HeadOfDivisionStatus = 'cancel';
     return this.repo.save(request);
+  }
+  //find by department
+  ////////////////////////////////////////////////////////////////////////
+  async findAllFromAlternativeChannelsDepartment(): Promise<ServiceRequest[]> {
+    return this.repo.find({ where: { department: 'Alternative Channels' } });
   }
 }
