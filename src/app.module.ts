@@ -14,7 +14,7 @@ import { UsersModule } from './auth/user.module';
       port: 5433,
       username: 'postgres',
       password: '2023',
-      database: 'service',
+      database: 'test',
       autoLoadEntities: true,
 
       synchronize: true,

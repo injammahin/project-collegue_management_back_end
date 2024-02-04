@@ -12,13 +12,12 @@ export class AuthService {
   constructor(private usersService: UsersService) {}
 
   async signup(
-    name: string,
     email: string,
     password: string,
     user_id: string,
     employee_name: string,
     designation: string,
-    department_id: string,
+
     role: string = '',
   ) {
     // See if email is in use
@@ -33,14 +32,12 @@ export class AuthService {
     }
 
     const user = await this.usersService.create(
-      name,
       email,
       password,
       role,
       user_id,
       employee_name,
       designation,
-      department_id,
     );
 
     // Return the user

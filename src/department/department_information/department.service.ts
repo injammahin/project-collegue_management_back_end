@@ -11,18 +11,14 @@ export class departmentService {
   ) {}
 
   create(
-    department_id: number,
+    manager_id: number,
 
     department_name: string,
-
-    department_supervisor: string,
   ) {
     const department = this.repo.create({
-      department_id,
+      manager_id,
 
       department_name,
-
-      department_supervisor,
     });
 
     return this.repo.save(department);

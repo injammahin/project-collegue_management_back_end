@@ -13,13 +13,11 @@ export class Department {
   @PrimaryGeneratedColumn()
   id: string;
   @Column()
-  department_id: number;
+  manager_id: number;
 
   @Column()
   department_name: string;
 
-  @Column()
-  department_supervisor: string;
   @OneToMany(() => User, (user) => user.department)
   users: User[];
 }

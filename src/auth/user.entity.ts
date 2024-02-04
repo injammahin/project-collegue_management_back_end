@@ -20,10 +20,9 @@ export class User {
   employee_name: string;
   @Column()
   designation: string;
-  @Column()
-  department_id: string;
-  @Column()
-  name: string;
+  // @Column()
+  // department_id: string;
+
   @Column()
   email: string;
   @Column()

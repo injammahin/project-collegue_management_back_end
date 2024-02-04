@@ -14,11 +14,9 @@ export class departmentController {
   @Post('/fillup')
   async createUser(@Body() body: departmentDto) {
     const request = await this.departmentAuthService.fillup(
-      body.department_id,
+      body.manager_id,
 
       body.department_name,
-
-      body.department_supervisor,
     );
     return request;
   }

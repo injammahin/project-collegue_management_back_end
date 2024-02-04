@@ -14,18 +14,16 @@ export class UsersService {
     user_id,
     employee_name: string,
     designation: string,
-    department_id: string,
+
     role: string = 'user',
   ) {
     const user = this.repo.create({
-      name,
       role,
       email,
       password,
       user_id,
       employee_name,
       designation,
-      department_id,
     });
 
     return this.repo.save(user);

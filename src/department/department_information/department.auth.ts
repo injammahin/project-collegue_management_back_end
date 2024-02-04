@@ -8,18 +8,14 @@ import { departmentService } from './department.service';
 export class departmentAuthService {
   constructor(private ServiceRequestService: departmentService) {}
   async fillup(
-    department_id: number,
+    manager_id: number,
 
     department_name: string,
-
-    department_supervisor: string,
   ) {
     const ServiceRequest = await this.ServiceRequestService.create(
-      department_id,
+      manager_id,
 
       department_name,
-
-      department_supervisor,
     );
 
     return ServiceRequest;
