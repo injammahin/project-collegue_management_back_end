@@ -2,7 +2,13 @@ import { Department } from 'src/department/department_information/department.ent
 import { Employee } from 'src/department/employee_information/employee.entity';
 import { Maintenance } from 'src/maintenance_request_form/maintetance.entity';
 import { ServiceRequest } from 'src/service-request/service-request.entity';
-import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
+import {
+  Entity,
+  Column,
+  PrimaryGeneratedColumn,
+  OneToMany,
+  ManyToOne,
+} from 'typeorm';
 
 @Entity()
 export class User {
@@ -31,7 +37,8 @@ export class User {
   maintenances: Maintenance[];
   @OneToMany(() => Employee, (employee) => employee.user)
   employees: Employee[];
-  @OneToMany(() => Department, (department) => department.user)
-  departments: Department[];
+  @ManyToOne(() => Department, (department) => department.users)
+  department: Department;
+
   length: any;
 }
