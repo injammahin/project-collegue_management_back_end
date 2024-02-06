@@ -9,6 +9,6 @@ export class Vendor {
   @Column()
   verdor_name: string;
 
-  // @ManyToOne(() => User, (user) => user.employees)
-  // user: User;
+  @ManyToOne(() => User, (user) => user.employees)
+  user: User;
 }

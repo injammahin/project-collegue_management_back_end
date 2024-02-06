@@ -34,8 +34,8 @@ export class User {
   serviceRequests: ServiceRequest[];
   @OneToMany(() => Maintenance, (maintenance) => maintenance.user)
   maintenances: Maintenance[];
-  // @OneToMany(() => Employee, (employee) => employee.user)
-  // employees: Employee[];
+  @OneToMany(() => Vendor, (employee) => employee.user)
+  employees: Vendor[];
   @ManyToOne(() => Department, (department) => department.users)
   department: Department;
 
