@@ -23,24 +23,9 @@ export class employeeService {
     }
     return this.repo.findOneBy({ id });
   }
-  // async findAll(): Promise<ServiceRequest[]> {
-  //   return await this.serviceRequestRepository.find();
-  // }
-  // async findAll(): Promise<Employee[]> {
-  //   return this.repo.find({ relations: ['user'] });
-
-  // async update(id: number, attrs: Partial<Employee>) {
-  //   const employee = await this.findOne(id);
-  //   if (!employee) {
-  //     throw new Employee('Payment details not found');
-  //   }
-  //   Object.assign(employee, attrs);
-  //   return this.repo.save(employee);
-  // }
-  // async remove(id: number) {
-  //   const payment = await this.findOne(id);
-  //   if (!payment) {
-  //     throw new NotFoundException('user not found');
-  //   }
-  //   return this.repo.remove(payment);
+  findAllVendorNames(): Promise<string[]> {
+    return this.repo
+      .find({ select: ['verdor_name'] })
+      .then((vendors) => vendors.map((vendor) => vendor.verdor_name));
+  }
 }

@@ -17,8 +17,9 @@ export class employeeController {
     return request;
   }
 
-  // @Get()
-  // findAll() {
-  //   return this.serviceRequestService.findAll();
-  // }
+  @Get('/all-vendors')
+  async getAllVendors() {
+    const vendors = await this.employeeService.findAllVendorNames();
+    return vendors;
+  }
 }
