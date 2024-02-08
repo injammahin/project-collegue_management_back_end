@@ -27,6 +27,8 @@ export class MaintenanceController {
   @Post('/fillup')
   async createUser(@Body() body: MaintenanceDto) {
     const request = await this.maintenanceAuthService.fillup(
+      ////////////////////////////////* part -1 *////////////////////////////////
+
       body.requestNumber,
 
       body.subofChange,
@@ -60,6 +62,8 @@ export class MaintenanceController {
       body.endDate,
 
       body.endTime,
+      ////////////////////////////////* part -2 *////////////////////////////////
+
       body.changeLocation,
       body.targetedSystemFor,
       body.IPaddress,
@@ -88,6 +92,7 @@ export class MaintenanceController {
       body.ChangeReviewForSuccess,
       body.ActualDowntime,
       body.WorkExecutionStatus,
+      ////////////////////////// * for audit purpose *//////////////////////////////////////
 
       body.user,
     );
@@ -95,15 +100,23 @@ export class MaintenanceController {
     return request;
   }
 
+  /* The `@Get()` decorator is used to specify the HTTP method and route for retrieving all maintenance
+ requests. It indicates that this route will handle GET requests without any parameters in the URL. */
   @Get()
   findAll() {
     return this.MaintenanceRequestService.findAll();
   }
+  /* The `@Put('/:id')` decorator is used to specify the HTTP method and route for updating a
+ maintenance request. It indicates that this route will handle PUT requests with a parameter `id` in
+ the URL. */
   @Put('/:id')
   updateUser(@Param('id') id: string, @Body() body: UpdateMaintenanceDto) {
     return this.MaintenanceRequestService.update(parseInt(id), body);
   }
 
+  /* The `@Delete('/:id')` decorator is used to specify the HTTP method and route for deleting a
+ maintenance request. It indicates that this route will handle DELETE requests with a parameter `id`
+ in the URL. */
   @Delete('/:id')
   removeUser(@Param('id') id: string) {
     return this.MaintenanceRequestService.remove(parseInt(id));

@@ -73,7 +73,7 @@ export class MaintenanceRequestService {
     ////////////////////////////////* part -4 *////////////////////////////////
     ExecusionTeamMenbers: string,
     ExecusionTeamleaders: string,
-    ////////////////////////////////* part -4 *////////////////////////////////
+    ////////////////////////////////* part -5 *////////////////////////////////
     ChangeReviewForperformed: string,
     ChangeReviewForSuccess: string,
     ActualDowntime: string,
@@ -132,6 +132,15 @@ export class MaintenanceRequestService {
 
     return this.repo.save(payment);
   }
+  /**
+   * The `findOne` function takes an `id` parameter and returns the result of calling `findOneBy` on the
+   * `repo` object with the `id` as a filter.
+   * @param {number} id - The `id` parameter is a number that represents the unique identifier of the
+   * item you want to find.
+   * @returns If the `id` parameter is falsy (e.g. `null`, `undefined`, `0`, etc.), then `null` is being
+   * returned. Otherwise, the method `findOneBy` is being called on `this.repo` with the `id` as a
+   * parameter, and the result of that method call is being returned.
+   */
   findOne(id: number) {
     if (!id) {
       return null;
@@ -141,9 +150,24 @@ export class MaintenanceRequestService {
   // async findAll(): Promise<ServiceRequest[]> {
   //   return await this.serviceRequestRepository.find();
   // }
+  /**
+   * The `findAll` function returns a promise that resolves to an array of `Maintenance` objects, with
+   * their associated `user` objects included.
+   * @returns The `findAll` method is returning a Promise that resolves to an array of `Maintenance`
+   * objects.
+   */
   async findAll(): Promise<Maintenance[]> {
     return this.repo.find({ relations: ['user'] });
   }
+  /**
+   * The function updates a service request with the provided attributes.
+   * @param {number} id - The `id` parameter is a number that represents the unique identifier of the
+   * service request that needs to be updated.
+   * @param attrs - The `attrs` parameter is an object that contains partial data for updating a
+   * `Maintenance` entity. It allows you to update only specific properties of the entity instead of
+   * updating all properties at once.
+   * @returns The updated service request object is being returned.
+   */
   async update(id: number, attrs: Partial<Maintenance>) {
     const serviceRequest = await this.findOne(id);
     if (!serviceRequest) {
@@ -152,6 +176,12 @@ export class MaintenanceRequestService {
     Object.assign(serviceRequest, attrs);
     return this.repo.save(serviceRequest);
   }
+  /**
+   * The function removes a payment record from the repository based on the provided ID.
+   * @param {number} id - The `id` parameter is a number that represents the unique identifier of the
+   * payment that needs to be removed.
+   * @returns The `remove` method is returning the result of the `remove` function from the repository.
+   */
   async remove(id: number) {
     const payment = await this.findOne(id);
     if (!payment) {
