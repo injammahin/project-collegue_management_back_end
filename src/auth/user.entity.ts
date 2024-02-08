@@ -10,6 +10,7 @@ import {
   ManyToOne,
 } from 'typeorm';
 
+/* The User class represents a user entity with various properties and relationships to other entities. */
 @Entity()
 export class User {
   @PrimaryGeneratedColumn()

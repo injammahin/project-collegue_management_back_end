@@ -1,3 +1,5 @@
+/* The `maintenanceAuthService` class is responsible for handling authentication and creating
+maintenance service requests. */
 import {
   Injectable,
   BadRequestException,

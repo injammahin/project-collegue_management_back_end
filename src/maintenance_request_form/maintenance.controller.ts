@@ -1,3 +1,5 @@
+/* The MaintenanceController class is responsible for handling HTTP requests related to maintenance
+requests, including creating, updating, and deleting maintenance requests. */
 // src/service-request.controller.ts
 import {
   Body,

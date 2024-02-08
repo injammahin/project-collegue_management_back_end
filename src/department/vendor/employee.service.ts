@@ -1,3 +1,5 @@
+/* The `employeeService` class is a service that handles CRUD operations for the `Vendor` entity,
+including creating a new vendor, finding a vendor by ID, and retrieving all vendor names. */
 // src/service-request.service.ts
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
