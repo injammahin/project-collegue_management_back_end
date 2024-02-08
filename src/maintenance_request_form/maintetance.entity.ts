@@ -6,31 +6,22 @@ import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 export class Maintenance {
   @PrimaryGeneratedColumn()
   id: number;
-
   @Column()
   requestNumber: string;
-
   @Column()
   subofChange: string;
-
   @Column()
   date: string;
-
   @Column()
   requesterName: string;
-
   @Column()
   EmployeeId: string;
-
   @Column()
   department: string;
-
   @Column()
   contractNo: string;
-
   @Column()
   MaintenanceType: string;
-
   @Column()
   purposeOfActivity: string;
   @Column()
@@ -49,6 +40,58 @@ export class Maintenance {
   endDate: string;
   @Column()
   endTime: string;
+  @Column()
+  changeLocation: string;
+  @Column()
+  targetedSystemFor: string;
+  @Column()
+  IPaddress: string;
+  @Column()
+  ImpactedSystemform: string;
+  @Column()
+  DetailedDescriptionOfChange: string;
+  @Column()
+  DetailedWorkedPlanTask: string;
+  @Column()
+  DetailedWorkedPlanStartTime: string;
+  @Column()
+  DetailedWorkedPlanEndTime: string;
+  @Column()
+  RequirementTools: string;
+  @Column()
+  Implementationteam: string;
+  @Column()
+  Communication: string;
+  @Column()
+  RollBackPlan: string;
+  @Column()
+  checklistStatusOne: string;
+  @Column()
+  checklistStatusTwo: string;
+  @Column()
+  checklistStatusThree: string;
+  @Column()
+  checklistStatusFour: string;
+  @Column()
+  ImpactedSystemfor: string;
+  @Column()
+  ActualPriority: string;
+  @Column()
+  Actualimpactlevel: string;
+  ////////////////////////////////* part -4 *////////////////////////////////
+  @Column()
+  ExecusionTeamMenbers: string;
+  @Column()
+  ExecusionTeamleaders: string;
+  ////////////////////////////////* part -4 *////////////////////////////////
+  @Column()
+  ChangeReviewForperformed: string;
+  @Column()
+  ChangeReviewForSuccess: string;
+  @Column()
+  ActualDowntime: string;
+  @Column()
+  WorkExecutionStatus: string;
   @ManyToOne(() => User, (user) => user.maintenances)
   user: User;
 }

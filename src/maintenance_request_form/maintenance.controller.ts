@@ -58,6 +58,35 @@ export class MaintenanceController {
       body.endDate,
 
       body.endTime,
+      body.changeLocation,
+      body.targetedSystemFor,
+      body.IPaddress,
+      body.ImpactedSystemform,
+      body.DetailedDescriptionOfChange,
+      body.DetailedWorkedPlanTask,
+      body.DetailedWorkedPlanStartTime,
+      body.DetailedWorkedPlanEndTime,
+      body.RequirementTools,
+      body.Implementationteam,
+      body.Communication,
+      body.RollBackPlan,
+      body.checklistStatusOne,
+      body.checklistStatusTwo,
+      body.checklistStatusThree,
+      body.checklistStatusFour,
+      ////////////////////////////////* part -3 *////////////////////////////////
+      body.ImpactedSystemfor,
+      body.ActualPriority,
+      body.Actualimpactlevel,
+      ////////////////////////////////* part -4 *////////////////////////////////
+      body.ExecusionTeamMenbers,
+      body.ExecusionTeamleaders,
+      ////////////////////////////////* part -4 *////////////////////////////////
+      body.ChangeReviewForperformed,
+      body.ChangeReviewForSuccess,
+      body.ActualDowntime,
+      body.WorkExecutionStatus,
+
       body.user,
     );
 
