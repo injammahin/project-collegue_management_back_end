@@ -1,3 +1,4 @@
+/* The `maintenanceAuthService` class handles authentication and creates maintenance service requests. */
 /* The `maintenanceAuthService` class is responsible for handling authentication and creating
 maintenance service requests. */
 import {

@@ -1,3 +1,7 @@
+/* The `MaintenanceDto` class represents a service request entity with various properties and a
+relationship to the `User` entity in TypeScript. */
+/* The `Maintenance` class represents a service request entity with various properties and a
+relationship to the `User` entity. */
 import { IsNotEmpty, IsOptional } from 'class-validator';
 export class MaintenanceDto {
   @IsNotEmpty()

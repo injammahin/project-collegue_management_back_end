@@ -1,3 +1,7 @@
+/* The `Maintenance` class represents a service request entity with various properties and a
+relationship to the `User` entity. */
+/* The `Maintenance` class represents a service request entity with various properties and a
+relationship to the `User` entity. */
 // src/service-request.entity.ts
 import { User } from 'src/auth/user.entity';
 import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';

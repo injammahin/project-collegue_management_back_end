@@ -1,3 +1,5 @@
+/* The MaintenanceRequestService class is a service that handles CRUD operations for maintenance
+requests. */
 // src/service-request.service.ts
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
