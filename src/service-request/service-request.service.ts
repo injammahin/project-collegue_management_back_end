@@ -321,4 +321,8 @@ export class ServiceRequestService {
       where: { department: 'Swift' },
     });
   }
+
+  async findRequestsByUser(requestedBy: string): Promise<ServiceRequest[]> {
+    return this.repo.find({ where: { requestedBy } });
+  }
 }

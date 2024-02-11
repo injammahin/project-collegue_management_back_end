@@ -228,4 +228,8 @@ export class ServiceRequestController {
   getSwiftDepartmentRequests() {
     return this.serviceRequestService.findAllFromSwiftDepartment();
   }
+  @Get('/by-user/:requestedBy')
+  findRequestsByUser(@Param('requestedBy') requestedBy: string) {
+    return this.serviceRequestService.findRequestsByUser(requestedBy);
+  }
 }
