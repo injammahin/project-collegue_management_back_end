@@ -232,4 +232,8 @@ export class ServiceRequestController {
   findRequestsByUser(@Param('requestedBy') requestedBy: string) {
     return this.serviceRequestService.findRequestsByUser(requestedBy);
   }
+  @Get('/request-nos')
+  async getAllRequestNos(): Promise<string[]> {
+    return this.serviceRequestService.findAllRequestNos();
+  }
 }

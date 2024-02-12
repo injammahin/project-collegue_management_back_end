@@ -325,4 +325,13 @@ export class ServiceRequestService {
   async findRequestsByUser(requestedBy: string): Promise<ServiceRequest[]> {
     return this.repo.find({ where: { requestedBy } });
   }
+  async findAllRequestNos(): Promise<string[]> {
+    const requests = await this.repo.find({
+      select: ['requestNo'], // Select only the requestNo field
+    });
+
+    // Extract just the requestNo values from the requests
+    const requestNos = requests.map((request) => request.requestNo);
+    return requestNos;
+  }
 }
