@@ -75,11 +75,11 @@ export class ServiceRequestService {
       revokeBy,
       deviceApprovedBy,
 
-      approvalStatus: 'Pending',
-      // supervisorStatus: pending,exe
-      cisoStatus: 'Pending',
-      HeadOfDivisionStatus: 'Pending',
-      submissionDateTime,
+      // approvalStatus: 'Pending',
+      // // supervisorStatus: pending,exe
+      // cisoStatus: 'Pending',
+      // HeadOfDivisionStatus: 'Pending',
+      // submissionDateTime,
     });
 
     return this.repo.save(payment);

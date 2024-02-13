@@ -96,6 +96,18 @@ export class Maintenance {
   ActualDowntime: string;
   @Column()
   WorkExecutionStatus: string;
+
+  ////////////////////////////////
+  @Column({ default: 'Pending ' })
+  supervisorStatus: string;
+  @Column({ default: 'Pending ' })
+  approvalStatus: string;
+  @Column({ default: 'Pending ' })
+  cisoStatus: string;
+  @Column({ default: 'Pending ' })
+  HeadOfDivisionStatus: string;
+  @Column({ default: 'N/A ' })
+  submissionDateTime: string;
   @ManyToOne(() => User, (user) => user.maintenances)
   user: User;
 }

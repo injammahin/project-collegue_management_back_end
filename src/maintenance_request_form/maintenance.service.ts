@@ -78,6 +78,7 @@ export class MaintenanceRequestService {
     ChangeReviewForSuccess: string,
     ActualDowntime: string,
     WorkExecutionStatus: string,
+    /////////////////////////////////////
 
     user: string,
   ) {
@@ -128,6 +129,12 @@ export class MaintenanceRequestService {
       ActualDowntime,
       WorkExecutionStatus,
       user,
+      //////////////
+      // approvalStatus: 'Pending',
+      // // supervisorStatus: pending,exe
+      // cisoStatus: 'Pending',
+      // HeadOfDivisionStatus: 'Pending',
+      // submissionDateTime,
     });
 
     return this.repo.save(payment);
