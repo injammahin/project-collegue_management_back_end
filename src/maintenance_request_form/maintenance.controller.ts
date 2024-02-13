@@ -9,6 +9,7 @@ import {
   Delete,
   Get,
   Param,
+  Patch,
   Post,
   Put,
 } from '@nestjs/common';
@@ -121,4 +122,149 @@ export class MaintenanceController {
   removeUser(@Param('id') id: string) {
     return this.MaintenanceRequestService.remove(parseInt(id));
   }
+  ///////////////////////////?
+  @Get('/released')
+  findAllreleasedForm() {
+    return this.MaintenanceRequestService.findAllreleasedForm();
+  }
+
+  @Patch('/approve/:id')
+  approve(@Param('id') id: number) {
+    return this.MaintenanceRequestService.approve(id);
+  }
+
+  @Patch('/decline/:id')
+  decline(@Param('id') id: number) {
+    return this.MaintenanceRequestService.decline(id);
+  }
+  @Patch('/revision/:id')
+  revision(@Param('id') id: number) {
+    return this.MaintenanceRequestService.revision(id);
+  }
+  ////
+  // @Get('/it-department')
+  // getITDepartmentRequests() {
+  //   return this.serviceRequestService.findAllFromAlternativeChannelsDepartment();
+  // }
+
+  @Patch('/release/:id')
+  releaseRequest(@Param('id') id: number) {
+    return this.MaintenanceRequestService.releaseRequest(id);
+  }
+
+  @Patch('/block/:id')
+  blockRequest(@Param('id') id: number) {
+    return this.MaintenanceRequestService.blockRequest(id);
+  }
+  ////////////////////////////////////////////////////////////////
+  @Get('/approved')
+  findAllApproved() {
+    return this.MaintenanceRequestService.findAllApproved();
+  }
+
+  @Patch('/approved/:id')
+  approveed(@Param('id') id: number) {
+    return this.MaintenanceRequestService.approveed(id);
+  }
+
+  @Patch('/reject/:id')
+  reject(@Param('id') id: number) {
+    return this.MaintenanceRequestService.reject(id);
+  }
+  @Get('/confirm')
+  findFinalApproved() {
+    return this.MaintenanceRequestService.findFinalApproved();
+  }
+
+  @Patch('/confirm/:id')
+  confirm(@Param('id') id: number) {
+    return this.MaintenanceRequestService.confirm(id);
+  }
+
+  @Patch('/cancel/:id')
+  cancel(@Param('id') id: number) {
+    return this.MaintenanceRequestService.cancel(id);
+  }
+  //find by department name
+  ////////////////////////////////
+  @Get('/Alternative-Channels') //done
+  getAlternativeChannelsDepartmentRequests() {
+    return this.MaintenanceRequestService.findAllFromAlternativeChannelsDepartment();
+  }
+  @Get('/ApplicationUser-Management')
+  getApplicationUserManagementDepartmentRequests() {
+    return this.MaintenanceRequestService.findAllFromApplicationUserManagementDepartment();
+  }
+  @Get('/CardsAndATMSystem')
+  getCardsAndATMSystemDepartmentRequests() {
+    return this.MaintenanceRequestService.findAllFromCardsAndATMSystemDepartment();
+  }
+  @Get('/CorporateApplication')
+  getCorporateApplicationDepartmentRequests() {
+    return this.MaintenanceRequestService.findAllFromCorporateApplicationDepartment();
+  }
+  @Get('/DataCenterManagement')
+  getDataCenterManagementDepartmentRequests() {
+    return this.MaintenanceRequestService.findAllFromDataCenterManagementDepartment();
+  }
+  @Get('/DataCenterPassiveInfrastructure')
+  getDataCenterPassiveInfrastructureDepartmentRequests() {
+    return this.MaintenanceRequestService.findAllFromDataCenterPassiveInfrastructureDepartment();
+  }
+  @Get('/DatabaseAdministration')
+  getDatabaseAdministrationDepartmentRequests() {
+    return this.MaintenanceRequestService.findAllFromDatabaseAdministrationDepartment();
+  }
+  @Get('/ITSecurityAndCompliance')
+  getITSecurityAndComplianceDepartmentRequests() {
+    return this.MaintenanceRequestService.findAllITSecurityAndComplianceDepartment();
+  }
+  @Get('/MiddlewareAdministration')
+  getMiddlewareAdministrationDepartmentRequests() {
+    return this.MaintenanceRequestService.findAllFromMiddlewareAdministrationDepartment();
+  }
+  @Get('/MISAndDataSupport')
+  getMISAndDataSupportDepartmentRequests() {
+    return this.MaintenanceRequestService.findAllFromMISAndDataSupportDepartment();
+  }
+  @Get('/NetworkManagement')
+  getNetworkManagementDepartmentRequests() {
+    return this.MaintenanceRequestService.findAllFromNetworkManagementDepartment();
+  }
+  @Get('/HelpDesk')
+  getHelpDeskDepartmentRequests() {
+    return this.MaintenanceRequestService.findAllFromHelpDeskDepartment();
+  }
+  @Get('/InitiativesAndProjects')
+  getInitiativesAndProjectsDepartmentRequests() {
+    return this.MaintenanceRequestService.findAllNewInitiativesAndProjectsDepartment();
+  }
+  @Get('/ProcurementzzAndAssetManagement')
+  getProcurementzzAndAssetManagementDepartmentRequests() {
+    return this.MaintenanceRequestService.findAllFromProcurementzzAndAssetManagementDepartment();
+  }
+  @Get('/RetailApplication')
+  getRetailApplicationDepartmentRequests() {
+    return this.MaintenanceRequestService.findAllFromRetailApplicationDepartment();
+  }
+  @Get('/ServerAndStorageManagement')
+  getServerAndStorageManagementDepartmentRequests() {
+    return this.MaintenanceRequestService.findAllFromServerAndStorageManagementDepartment();
+  }
+  @Get('/WindowsSystemManagement')
+  getWindowsSystemManagementDepartmentRequests() {
+    return this.MaintenanceRequestService.findAllFromWindowsSystemManagementDepartment();
+  }
+  @Get('/Swift')
+  getSwiftDepartmentRequests() {
+    return this.MaintenanceRequestService.findAllFromSwiftDepartment();
+  }
+  // @Get('/by-user/:requestedBy')
+  // findRequestsByUser(@Param('requestedBy') requestedBy: string) {
+  //   return this.MaintenanceRequestService.findRequestsByUser(requestedBy);
+  // }
+  // @Get('/request-nos')
+  // async getAllRequestNos(): Promise<string[]> {
+  //   return this.MaintenanceRequestService.findAllRequestNos();
+  // }
 }

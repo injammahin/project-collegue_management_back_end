@@ -196,4 +196,221 @@ export class MaintenanceRequestService {
     }
     return this.repo.remove(payment);
   }
+  ////////////////////////////////////////////
+  async findAllreleasedForm(): Promise<Maintenance[]> {
+    return this.repo.find({ where: { supervisorStatus: 'Released' } });
+  }
+
+  // Method to release a request
+  async approve(id: number) {
+    const request = await this.findOne(id);
+    if (!request) {
+      throw new NotFoundException('Request not found');
+    }
+    // Update logic for releasing the request (e.g., changing its status)
+    request.approvalStatus = 'approve';
+    return this.repo.save(request);
+  }
+
+  // Method to block a request
+  async decline(id: number) {
+    const request = await this.findOne(id);
+    if (!request) {
+      throw new NotFoundException('Request not found');
+    }
+    // Update logic for blocking the request (e.g., changing its status)
+    request.approvalStatus = 'decline';
+    return this.repo.save(request);
+  }
+  async revision(id: number) {
+    const request = await this.findOne(id);
+    if (!request) {
+      throw new NotFoundException('Request not found');
+    }
+    // Update logic for blocking the request (e.g., changing its status)
+    request.approvalStatus = 'revision';
+    return this.repo.save(request);
+  }
+  ////////
+
+  // Method to release a request
+  async releaseRequest(id: number) {
+    const request = await this.findOne(id);
+    if (!request) {
+      throw new NotFoundException('Request not found');
+    }
+    // Update logic for releasing the request (e.g., changing its status)
+    request.supervisorStatus = 'Released';
+    return this.repo.save(request);
+  }
+
+  // Method to block a request
+  async blockRequest(id: number) {
+    const request = await this.findOne(id);
+    if (!request) {
+      throw new NotFoundException('Request not found');
+    }
+    // Update logic for blocking the request (e.g., changing its status)
+    request.supervisorStatus = 'Blocked';
+    return this.repo.save(request);
+  }
+  ////////////////////////////////////////////////////////////////////////////////////////////////
+  async findAllApproved(): Promise<Maintenance[]> {
+    return this.repo.find({ where: { approvalStatus: 'approve' } });
+  }
+
+  // Method to release a request
+  async approveed(id: number) {
+    const request = await this.findOne(id);
+    if (!request) {
+      throw new NotFoundException('Request not found');
+    }
+    // Update logic for releasing the request (e.g., changing its status)
+    request.cisoStatus = 'approveed';
+    return this.repo.save(request);
+  }
+
+  // Method to block a request
+  async reject(id: number) {
+    const request = await this.findOne(id);
+    if (!request) {
+      throw new NotFoundException('Request not found');
+    }
+    // Update logic for blocking the request (e.g., changing its status)
+    request.cisoStatus = 'decline';
+    return this.repo.save(request);
+  }
+  // async (id: number) {
+  //   const request = await this.findOne(id);
+  //   if (!request) {
+  //     throw new NotFoundException('Request not found');
+  //   }
+  //   // Update logic for blocking the request (e.g., changing its status)
+  //   request.approvalStatus = 'revision';
+  //   return this.repo.save(request);
+  // }
+  async findFinalApproved(): Promise<Maintenance[]> {
+    return this.repo.find({ where: { cisoStatus: 'approveed' } });
+  }
+
+  // Method to release a request
+  async confirm(id: number) {
+    const request = await this.findOne(id);
+    if (!request) {
+      throw new NotFoundException('Request not found');
+    }
+    // Update logic for releasing the request (e.g., changing its status)
+    request.HeadOfDivisionStatus = 'confirm';
+    return this.repo.save(request);
+  }
+
+  // Method to block a request
+  async cancel(id: number) {
+    const request = await this.findOne(id);
+    if (!request) {
+      throw new NotFoundException('Request not found');
+    }
+    // Update logic for blocking the request (e.g., changing its status)
+    request.HeadOfDivisionStatus = 'cancel';
+    return this.repo.save(request);
+  }
+  //find by department
+  ////////////////////////////////////////////////////////////////////////
+  async findAllFromAlternativeChannelsDepartment(): Promise<Maintenance[]> {
+    return this.repo.find({ where: { department: 'Alternative Channels' } });
+  }
+  async findAllFromApplicationUserManagementDepartment(): Promise<
+    Maintenance[]
+  > {
+    return this.repo.find({
+      where: { department: 'Application User Management' },
+    });
+  }
+  async findAllFromCardsAndATMSystemDepartment(): Promise<Maintenance[]> {
+    return this.repo.find({ where: { department: 'Cards & ATM System' } });
+  }
+  async findAllFromCorporateApplicationDepartment(): Promise<Maintenance[]> {
+    return this.repo.find({ where: { department: 'Corporate Application' } });
+  }
+  async findAllFromDataCenterManagementDepartment(): Promise<Maintenance[]> {
+    return this.repo.find({ where: { department: 'Data Center Management' } });
+  }
+  async findAllFromDataCenterPassiveInfrastructureDepartment(): Promise<
+    Maintenance[]
+  > {
+    return this.repo.find({
+      where: { department: 'Data Center Passive Infrastructure' },
+    });
+  }
+  async findAllFromDatabaseAdministrationDepartment(): Promise<Maintenance[]> {
+    return this.repo.find({ where: { department: 'Database Administration' } });
+  }
+  async findAllFromHelpDeskDepartment(): Promise<Maintenance[]> {
+    return this.repo.find({ where: { department: 'Help Desk' } });
+  }
+  async findAllITSecurityAndComplianceDepartment(): Promise<Maintenance[]> {
+    return this.repo.find({
+      where: { department: 'IT Security & Compliance' },
+    });
+  }
+  async findAllFromMiddlewareAdministrationDepartment(): Promise<
+    Maintenance[]
+  > {
+    return this.repo.find({
+      where: { department: 'Middleware Administration' },
+    });
+  }
+  async findAllNewInitiativesAndProjectsDepartment(): Promise<Maintenance[]> {
+    return this.repo.find({
+      where: { department: 'New Initiatives & Projects' },
+    });
+  }
+  async findAllFromProcurementzzAndAssetManagementDepartment(): Promise<
+    Maintenance[]
+  > {
+    return this.repo.find({
+      where: { department: 'Procurement & Asset Management' },
+    });
+  }
+  async findAllFromNetworkManagementDepartment(): Promise<Maintenance[]> {
+    return this.repo.find({ where: { department: 'Network Management' } });
+  }
+  async findAllFromRetailApplicationDepartment(): Promise<Maintenance[]> {
+    return this.repo.find({ where: { department: 'Retail Application' } });
+  }
+  async findAllFromServerAndStorageManagementDepartment(): Promise<
+    Maintenance[]
+  > {
+    return this.repo.find({
+      where: { department: 'Server & Storage Management' },
+    });
+  }
+  async findAllFromWindowsSystemManagementDepartment(): Promise<Maintenance[]> {
+    return this.repo.find({
+      where: { department: 'Windows System Management' },
+    });
+  }
+  async findAllFromMISAndDataSupportDepartment(): Promise<Maintenance[]> {
+    return this.repo.find({
+      where: { department: 'MIS & Data Support' },
+    });
+  }
+  async findAllFromSwiftDepartment(): Promise<Maintenance[]> {
+    return this.repo.find({
+      where: { department: 'Swift' },
+    });
+  }
+
+  // async findRequestsByUser(requestedBy: string): Promise<Maintenance[]> {
+  //   return this.repo.find({ where: { requestedBy } });
+  // }
+  // async findAllRequestNos(): Promise<string[]> {
+  //   const requests = await this.repo.find({
+  //     select: ['requestNo'], // Select only the requestNo field
+  //   });
+
+  //   // Extract just the requestNo values from the requests
+  //   const requestNos = requests.map((request) => request.requestNo);
+  //   return requestNos;
+  // }
 }
