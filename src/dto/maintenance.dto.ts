@@ -77,6 +77,8 @@ export class MaintenanceDto {
   checklistStatusThree: string;
   @IsOptional()
   checklistStatusFour: string;
+  @IsOptional()
+  referenceServiceRequest: string;
   ////////////////////////////////* part -3 *////////////////////////////////
   @IsOptional()
   ImpactedSystemfor: string;

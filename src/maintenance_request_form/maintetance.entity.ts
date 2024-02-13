@@ -24,6 +24,8 @@ export class Maintenance {
   department: string;
   @Column()
   contractNo: string;
+  @Column({ default: 'n/a ' })
+  referenceServiceRequest: string;
   @Column()
   MaintenanceType: string;
   @Column()

@@ -33,6 +33,7 @@ export class MaintenanceRequestService {
     MaintenanceType: string,
 
     purposeOfActivity: string,
+    referenceServiceRequest: string,
 
     priority: string,
 
@@ -101,6 +102,7 @@ export class MaintenanceRequestService {
       endDate,
       endTime,
       changeLocation,
+      referenceServiceRequest,
       targetedSystemFor,
       IPaddress,
       ImpactedSystemform,
