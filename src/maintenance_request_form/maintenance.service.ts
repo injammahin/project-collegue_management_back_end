@@ -46,7 +46,6 @@ export class MaintenanceRequestService {
     startDate: string,
 
     startTime: string,
-
     endDate: string,
 
     endTime: string,
@@ -85,24 +84,41 @@ export class MaintenanceRequestService {
   ) {
     const payment = this.repo.create({
       requestNumber,
+
       subofChange,
+
       date,
+
       requesterName,
+
       EmployeeId,
+
       department,
+
       contractNo,
+
       MaintenanceType,
+
       purposeOfActivity,
-      priority,
-      impactLevel,
-      requiredDowntime,
-      mentionDowntime,
-      startDate,
-      startTime,
-      endDate,
-      endTime,
-      changeLocation,
       referenceServiceRequest,
+
+      priority,
+
+      impactLevel,
+
+      requiredDowntime,
+
+      mentionDowntime,
+
+      startDate,
+
+      startTime,
+
+      endDate,
+
+      endTime,
+      ////////////////////////////////* part -2 *////////////////////////////////
+      changeLocation,
       targetedSystemFor,
       IPaddress,
       ImpactedSystemform,
@@ -125,17 +141,19 @@ export class MaintenanceRequestService {
       ////////////////////////////////* part -4 *////////////////////////////////
       ExecusionTeamMenbers,
       ExecusionTeamleaders,
-      ////////////////////////////////* part -4 *////////////////////////////////
+      ////////////////////////////////* part -5 *////////////////////////////////
       ChangeReviewForperformed,
       ChangeReviewForSuccess,
       ActualDowntime,
       WorkExecutionStatus,
+      /////////////////////////////////////
+
       user,
       //////////////
-      // approvalStatus: 'Pending',
-      // // supervisorStatus: pending,exe
-      // cisoStatus: 'Pending',
-      // HeadOfDivisionStatus: 'Pending',
+      approvalStatus: 'Pending',
+      // supervisorStatus: pending,exe
+      cisoStatus: 'Pending',
+      HeadOfDivisionStatus: 'Pending',
       // submissionDateTime,
     });
 

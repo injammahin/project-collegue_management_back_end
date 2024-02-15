@@ -29,11 +29,11 @@ export class maintenanceAuthService {
     MaintenanceType: string,
 
     purposeOfActivity: string,
+    referenceServiceRequest: string,
 
     priority: string,
 
     impactLevel: string,
-
     requiredDowntime: string,
 
     mentionDowntime: string,
@@ -43,9 +43,9 @@ export class maintenanceAuthService {
     startTime: string,
 
     endDate: string,
-    referenceServiceRequest: string,
 
     endTime: string,
+    ////////////////////////////////* part -2 *////////////////////////////////
     changeLocation: string,
     targetedSystemFor: string,
     IPaddress: string,
@@ -62,7 +62,6 @@ export class maintenanceAuthService {
     checklistStatusTwo: string,
     checklistStatusThree: string,
     checklistStatusFour: string,
-
     ////////////////////////////////* part -3 *////////////////////////////////
     ImpactedSystemfor: string,
     ActualPriority: string,
@@ -70,11 +69,13 @@ export class maintenanceAuthService {
     ////////////////////////////////* part -4 *////////////////////////////////
     ExecusionTeamMenbers: string,
     ExecusionTeamleaders: string,
-    ////////////////////////////////* part -4 *////////////////////////////////
+    ////////////////////////////////* part -5 *////////////////////////////////
     ChangeReviewForperformed: string,
     ChangeReviewForSuccess: string,
     ActualDowntime: string,
     WorkExecutionStatus: string,
+    /////////////////////////////////////
+
     user: string,
   ) {
     const ServiceRequest = await this.MaintenanceRequestService.create(
@@ -86,7 +87,6 @@ export class maintenanceAuthService {
 
       requesterName,
 
-      referenceServiceRequest,
       EmployeeId,
 
       department,
@@ -96,6 +96,7 @@ export class maintenanceAuthService {
       MaintenanceType,
 
       purposeOfActivity,
+      referenceServiceRequest,
 
       priority,
 
@@ -112,6 +113,7 @@ export class maintenanceAuthService {
       endDate,
 
       endTime,
+      ////////////////////////////////* part -2 *////////////////////////////////
       changeLocation,
       targetedSystemFor,
       IPaddress,
@@ -123,7 +125,6 @@ export class maintenanceAuthService {
       RequirementTools,
       Implementationteam,
       Communication,
-
       RollBackPlan,
       checklistStatusOne,
       checklistStatusTwo,
@@ -136,11 +137,13 @@ export class maintenanceAuthService {
       ////////////////////////////////* part -4 *////////////////////////////////
       ExecusionTeamMenbers,
       ExecusionTeamleaders,
-      ////////////////////////////////* part -4 *////////////////////////////////
+      ////////////////////////////////* part -5 *////////////////////////////////
       ChangeReviewForperformed,
       ChangeReviewForSuccess,
       ActualDowntime,
       WorkExecutionStatus,
+      /////////////////////////////////////
+
       user,
     );
 

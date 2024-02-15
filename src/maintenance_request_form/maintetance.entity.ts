@@ -24,12 +24,12 @@ export class Maintenance {
   department: string;
   @Column()
   contractNo: string;
-  @Column({ default: 'n/a ' })
-  referenceServiceRequest: string;
   @Column()
   MaintenanceType: string;
   @Column()
   purposeOfActivity: string;
+  @Column()
+  referenceServiceRequest: string;
   @Column()
   priority: string;
   @Column()
@@ -46,6 +46,7 @@ export class Maintenance {
   endDate: string;
   @Column()
   endTime: string;
+  ////////////////////////////////* part -2 *////////////////////////////////
   @Column()
   changeLocation: string;
   @Column()
@@ -79,18 +80,19 @@ export class Maintenance {
   @Column()
   checklistStatusFour: string;
   @Column()
+  ////////////////////////////////* part -3 *////////////////////////////////
   ImpactedSystemfor: string;
   @Column()
   ActualPriority: string;
   @Column()
   Actualimpactlevel: string;
-  ////////////////////////////////* part -4 *////////////////////////////////
   @Column()
+  ////////////////////////////////* part -4 *////////////////////////////////
   ExecusionTeamMenbers: string;
   @Column()
   ExecusionTeamleaders: string;
-  ////////////////////////////////* part -4 *////////////////////////////////
   @Column()
+  ////////////////////////////////* part -5 *////////////////////////////////
   ChangeReviewForperformed: string;
   @Column()
   ChangeReviewForSuccess: string;
@@ -98,6 +100,10 @@ export class Maintenance {
   ActualDowntime: string;
   @Column()
   WorkExecutionStatus: string;
+  // @Column()
+  /////////////////////////////////////
+  // @Column()
+  // user: string;
 
   ////////////////////////////////
   @Column({ default: 'Pending ' })
