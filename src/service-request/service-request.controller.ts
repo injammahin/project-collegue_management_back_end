@@ -43,8 +43,9 @@ export class ServiceRequestController {
       body.serviceDetails,
       body.submissionDateTime,
       body.user,
-      body.accessTimeDuration,
       body.accessDateDuration,
+      body.accessTimeDuration,
+
       body.execusiondata,
       body.vandorName,
       body.vandorAssignedReason,
