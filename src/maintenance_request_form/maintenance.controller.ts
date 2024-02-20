@@ -28,43 +28,27 @@ export class MaintenanceController {
   @Post('/fillup')
   async createUser(@Body() body: MaintenanceDto) {
     const request = await this.maintenanceAuthService.fillup(
-      ////////////////////////////////* part -1 *////////////////////////////////
-
+      ////////////////////////////////* part -1 *////////////////////////,
       body.requestNumber,
-
       body.subofChange,
-
-      body.date,
       body.requestedBy,
+      body.date,
       body.requesterName,
-
       body.EmployeeId,
-
       body.department,
-
       body.contractNo,
-
       body.MaintenanceType,
-
       body.purposeOfActivity,
-
+      body.referenceServiceRequest,
       body.priority,
-
       body.impactLevel,
-
       body.requiredDowntime,
-
       body.mentionDowntime,
-
       body.startDate,
-
       body.startTime,
-
       body.endDate,
-
       body.endTime,
       ////////////////////////////////* part -2 *////////////////////////////////
-
       body.changeLocation,
       body.targetedSystemFor,
       body.IPaddress,
@@ -88,12 +72,11 @@ export class MaintenanceController {
       ////////////////////////////////* part -4 *////////////////////////////////
       body.ExecusionTeamMenbers,
       body.ExecusionTeamleaders,
-      ////////////////////////////////* part -4 *////////////////////////////////
+      ////////////////////////////////* part -5 *////////////////////////////////
       body.ChangeReviewForperformed,
       body.ChangeReviewForSuccess,
       body.ActualDowntime,
       body.WorkExecutionStatus,
-      body.referenceServiceRequest,
       ////////////////////////// * for audit purpose *//////////////////////////////////////
 
       body.user,
