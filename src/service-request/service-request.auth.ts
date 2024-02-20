@@ -23,6 +23,7 @@ export class ServiceAuthService {
     employeeId: string,
 
     reasonOfRequest: string,
+    reasonOfRequested: string,
 
     serviceDetails: string,
     submissionDateTime: string,
@@ -55,6 +56,7 @@ export class ServiceAuthService {
       employeeId,
 
       reasonOfRequest,
+      reasonOfRequested,
 
       serviceDetails,
       submissionDateTime,

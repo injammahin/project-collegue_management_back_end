@@ -39,7 +39,7 @@ export class ServiceRequestController {
       body.employeeId,
 
       body.reasonOfRequest,
-
+      body.reasonOfRequested,
       body.serviceDetails,
       body.submissionDateTime,
       body.user,

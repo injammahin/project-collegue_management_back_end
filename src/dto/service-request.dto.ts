@@ -18,6 +18,8 @@ export class ServiceRequestDto {
   @IsNotEmpty()
   reasonOfRequest: string;
   @IsNotEmpty()
+  reasonOfRequested: string;
+  @IsNotEmpty()
   serviceDetails: string;
   @IsNotEmpty()
   submissionDateTime: string;

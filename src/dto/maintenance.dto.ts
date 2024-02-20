@@ -6,7 +6,8 @@ import { IsNotEmpty, IsOptional } from 'class-validator';
 export class MaintenanceDto {
   @IsNotEmpty()
   requestNumber: string;
-
+  @IsOptional()
+  requestedBy: string;
   @IsOptional()
   subofChange: string;
 

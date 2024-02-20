@@ -31,6 +31,8 @@ export class ServiceRequest {
   @Column()
   reasonOfRequest: string;
   @Column()
+  reasonOfRequested: string;
+  @Column()
   accessDateDuration: string;
   @Column()
   accessTimeDuration: string;

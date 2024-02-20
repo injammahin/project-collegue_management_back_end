@@ -15,6 +15,8 @@ export class Maintenance {
   @Column()
   subofChange: string;
   @Column()
+  requestedBy: string;
+  @Column()
   date: string;
   @Column()
   requesterName: string;
@@ -46,8 +48,8 @@ export class Maintenance {
   endDate: string;
   @Column()
   endTime: string;
-  ////////////////////////////////* part -2 *////////////////////////////////
   @Column()
+  ////////////////////////////////* part -2 *////////////////////////////////
   changeLocation: string;
   @Column()
   targetedSystemFor: string;

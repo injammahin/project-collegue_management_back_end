@@ -29,6 +29,7 @@ export class ServiceRequestService {
 
     reasonOfRequest: string,
 
+    reasonOfRequested: string,
     serviceDetails: string,
     submissionDateTime: string,
     user: string,
@@ -60,7 +61,7 @@ export class ServiceRequestService {
       employeeId,
 
       reasonOfRequest,
-
+      reasonOfRequested,
       serviceDetails,
       user,
       accessDateDuration,
