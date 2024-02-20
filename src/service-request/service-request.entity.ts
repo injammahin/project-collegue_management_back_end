@@ -37,7 +37,7 @@ export class ServiceRequest {
   @Column()
   accessTimeDuration: string;
   @Column()
-  execusion: string;
+  execusiondata: string;
   @Column()
   vandorName: string;
   @Column()

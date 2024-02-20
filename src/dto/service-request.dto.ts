@@ -29,7 +29,7 @@ export class ServiceRequestDto {
   @IsOptional()
   accessTimeDuration: string;
   @IsOptional()
-  execusion: string;
+  execusiondata: string;
   @IsOptional()
   vandorName: string;
   @IsOptional()

@@ -35,6 +35,7 @@ export class ServiceRequestService {
     user: string,
     accessDateDuration: string,
     accessTimeDuration: string,
+    execusiondata: string,
     vandorName: string,
     vandorAssignedReason: string,
     deviceRequired: string,
@@ -42,7 +43,7 @@ export class ServiceRequestService {
     readBy: string,
     ReturnTimeDate: string,
     revokeBy: string,
-    execusion: string,
+
     deviceApprovedBy: string,
   ) {
     const payment = this.repo.create({
@@ -66,7 +67,7 @@ export class ServiceRequestService {
       user,
       accessDateDuration,
       accessTimeDuration,
-      execusion,
+      execusiondata,
       vandorName,
       vandorAssignedReason,
       deviceRequired,
