@@ -130,7 +130,7 @@ export class MaintenanceController {
   // getITDepartmentRequests() {
   //   return this.serviceRequestService.findAllFromAlternativeChannelsDepartment();
   // }
-
+  //-------maintenanceRequest---supervisorStatus------------
   @Patch('/release/:id')
   releaseRequest(@Param('id') id: number) {
     return this.MaintenanceRequestService.releaseRequest(id);
