@@ -229,6 +229,8 @@ export class ServiceRequestController {
   getSwiftDepartmentRequests() {
     return this.serviceRequestService.findAllFromSwiftDepartment();
   }
+  /* The code snippet you provided is defining two additional routes in the `ServiceRequestController`
+ class: */
   @Get('/by-user/:requestedBy')
   findRequestsByUser(@Param('requestedBy') requestedBy: string) {
     return this.serviceRequestService.findRequestsByUser(requestedBy);
